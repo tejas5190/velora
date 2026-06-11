@@ -1,0 +1,39 @@
+/* Core Overrides */
+html {
+    background-color: #0a0806; /* brand-dark */
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Austria Info specific Overlapping Trick */
+/* The Hero is sticky, but the main content has a higher z-index and solid background to slide OVER it */
+main#editorial {
+    position: relative;
+    z-index: 20;
+    /* This shadow creates the illusion of the content block casting a shadow on the video underneath */
+    box-shadow: 0 -30px 60px rgba(10, 8, 6, 0.9); 
+}
+
+/* Typography Enhancements */
+.gold-text {
+    background: linear-gradient(to bottom right, #F9F1CC, #D4AF37, #8B6508);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Scrollbar Engineering */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0a0806; }
+::-webkit-scrollbar-thumb { 
+    background: #8B6508; 
+    border-radius: 4px; 
+}
+::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+/* Cinematic Smooth Image Loading */
+img, video {
+    background-color: #0a0806;
+}
