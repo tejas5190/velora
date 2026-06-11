@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Dominance OS | Client Portal</title>
+    <!-- Local SEO Flex for Pimpri-Chinchwad & Pune -->
+    <title>Premium Digital Marketing Agency | Pune & PCMC</title>
+    <meta name="description" content="We don't use templates. We build custom, edge-computed digital authorities for premium brands.">
     
     <!-- Premium Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,10 +19,9 @@
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         display: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['Fira Code', 'monospace'],
                     },
                     colors: {
-                        harvest: { 50: '#FDFBF7', 400: '#FFB142', 500: '#FF6B35' },
+                        harvest: { 50: '#FDFBF7', 100: '#FEF3C7', 400: '#FFB142', 500: '#FF6B35', 600: '#E85D2C' },
                         charcoal: '#111827',
                     }
                 }
@@ -27,293 +30,259 @@
     </script>
 
     <style>
-        /* 3D Glassmorphism & OS Aesthetics */
-        body { margin: 0; overflow: hidden; background-color: #111827; perspective: 1000px; }
+        body { background-color: #FDFBF7; overflow-x: hidden; }
         
-        .sun-kissed-bg {
-            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: radial-gradient(circle at 20% 30%, rgba(255,107,53,0.15) 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(255,177,66,0.15) 0%, transparent 40%);
-            z-index: 0;
+        /* Premium Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
         }
 
-        .glass-window {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+        /* 3D Container specific styles */
+        .tilt-container { perspective: 1000px; transform-style: preserve-3d; }
+        .tilt-element { transition: transform 0.1s ease-out; }
+        
+        /* Ambient Animated Blobs */
+        .blob {
+            position: absolute; filter: blur(80px); z-index: -1;
+            animation: moveBlob 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes moveBlob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.1); }
         }
 
-        .window-header {
-            background: rgba(255, 255, 255, 0.03);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Smooth UI Transitions */
-        .fade-out { opacity: 0; pointer-events: none; transition: opacity 0.5s ease; }
-        .fade-in { opacity: 1; pointer-events: auto; transition: opacity 0.8s ease 0.2s; }
-        
-        /* Interactive 3D Hover */
-        .draggable:hover { transform: translateZ(20px) scale(1.02); z-index: 50; }
-        
-        /* Custom Scrollbar for Terminal */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(255,107,53,0.5); border-radius: 10px; }
+        /* Video Hover Overlay */
+        .video-card .overlay { transition: opacity 0.3s ease; }
+        .video-card:hover .overlay { opacity: 0; }
     </style>
 </head>
-<body class="text-white font-sans antialiased selection:bg-harvest-500">
+<body class="text-charcoal font-sans antialiased selection:bg-harvest-500 selection:text-white">
 
-    <div class="sun-kissed-bg"></div>
+    <!-- Ambient Background Gradients -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
+        <div class="blob w-[600px] h-[600px] bg-harvest-400/20 rounded-full top-[-10%] right-[-10%]"></div>
+        <div class="blob w-[500px] h-[500px] bg-harvest-500/15 rounded-full bottom-[-20%] left-[-10%]" style="animation-delay: -5s;"></div>
+    </div>
 
-    <!-- 1. LOGIN SCREEN -->
-    <div id="auth-screen" class="absolute inset-0 z-50 flex items-center justify-center bg-charcoal/90 backdrop-blur-md transition-all duration-500">
-        <div class="glass-window rounded-3xl p-10 w-[400px] text-center border-t border-harvest-500/50">
-            <div class="w-16 h-16 mx-auto bg-gradient-to-br from-harvest-400 to-harvest-500 rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(255,107,53,0.3)]">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 p-4 md:p-6 transition-all duration-300" id="navbar">
+        <nav class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-4 flex justify-between items-center">
+            <div class="font-display text-2xl font-extrabold tracking-tight">
+                Data<span class="text-harvest-500">Drive.</span>
             </div>
-            <h1 class="font-display text-2xl font-bold mb-2">Initialize Workspace</h1>
-            <p class="text-gray-400 text-sm mb-8">Authenticate to access live campaign metrics.</p>
-            
-            <div class="space-y-4 mb-8 text-left">
-                <div>
-                    <label class="text-xs font-mono text-harvest-400 uppercase tracking-wider mb-1 block">Client ID</label>
-                    <input type="text" value="PUNE-ENT-884" class="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-harvest-500 transition font-mono text-sm" readonly>
-                </div>
-                <div>
-                    <label class="text-xs font-mono text-harvest-400 uppercase tracking-wider mb-1 block">Access Key</label>
-                    <input type="password" value="********" class="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-harvest-500 transition font-mono text-sm" readonly>
-                </div>
-            </div>
-            
-            <button onclick="loginToDashboard()" class="w-full bg-harvest-500 hover:bg-harvest-400 text-white font-bold py-3 rounded-lg transition-all shadow-[0_0_20px_rgba(255,107,53,0.4)]">
-                Connect to Edge
+            <ul class="hidden md:flex space-x-8 font-medium text-sm text-gray-700">
+                <li><a href="#services" class="hover:text-harvest-500 transition">Capabilities</a></li>
+                <li><a href="#performance" class="hover:text-harvest-500 transition">Infrastructure</a></li>
+            </ul>
+            <!-- Link this to the OS Dashboard later -->
+            <button class="bg-charcoal text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-gray-800 transition transform hover:-translate-y-0.5 shadow-lg flex items-center gap-2">
+                Client Portal <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
             </button>
-        </div>
-    </div>
+        </nav>
+    </header>
 
-    <!-- 2. MAIN OS WORKSPACE (Hidden initially) -->
-    <div id="os-workspace" class="absolute inset-0 z-10 flex flex-col p-4 opacity-0 pointer-events-none transition-all duration-700 scale-95">
-        
-        <!-- Header / OS Status Bar -->
-        <header class="glass-window rounded-2xl px-6 py-3 flex justify-between items-center mb-6">
-            <div class="flex items-center space-x-4">
-                <div class="font-display font-bold text-xl tracking-tight">Velora<span class="text-harvest-500">OS.</span></div>
-                <div class="h-4 w-px bg-gray-600"></div>
-                <div class="text-xs font-mono text-green-400 flex items-center"><span class="w-2 h-2 rounded-full bg-green-500 animate-pulse mr-2"></span>ENV: Production</div>
-            </div>
-            <!-- OS Clock Sync[cite: 3] -->
-            <div id="os-clock" class="font-mono text-sm text-harvest-400 font-bold tracking-wider"></div>
-        </header>
-
-        <!-- Canvas for 3D Windows -->
-        <main class="flex-1 relative w-full h-full flex gap-6">
+    <!-- HERO SECTION (Interactive 3D) -->
+    <main class="min-h-screen flex items-center pt-24 pb-12 max-w-7xl mx-auto px-6 relative">
+        <div class="grid lg:grid-cols-2 gap-12 items-center w-full">
             
-            <!-- LEFT COLUMN: Live Services Feed -->
-            <div class="w-2/3 grid grid-cols-2 gap-6 h-full p-2 overflow-y-auto pb-20">
+            <!-- Hero Copy -->
+            <div class="space-y-8 z-10">
+                <div class="inline-flex items-center space-x-2 bg-white/80 border border-harvest-400/30 px-4 py-2 rounded-full shadow-sm backdrop-blur-md">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-harvest-500 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-harvest-500"></span>
+                    </span>
+                    <span class="text-xs font-bold tracking-wide text-gray-800 uppercase">Pimpri-Chinchwad & Pune</span>
+                </div>
+
+                <h1 class="font-display text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight">
+                    Stop Buying Templates. <br>
+                    Invest in <span class="text-transparent bg-clip-text bg-gradient-to-r from-harvest-500 to-harvest-400">Authority.</span>
+                </h1>
                 
-                <!-- Service Window: Video Editing -->
-                <div class="glass-window draggable rounded-2xl overflow-hidden flex flex-col h-[300px]">
-                    <div class="window-header px-4 py-2 flex justify-between items-center">
-                        <span class="text-xs font-mono text-gray-300">01_VIDEO_EDITING.mp4</span>
-                        <div class="flex space-x-2"><div class="w-2.5 h-2.5 rounded-full bg-red-500"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500"></div></div>
-                    </div>
-                    <!-- Optimize Video Playback Logic hooks here[cite: 3] -->
-                    <div class="relative flex-1 bg-black">
-                        <video loop class="absolute inset-0 w-full h-full object-cover opacity-80" src="https://cdn.pixabay.com/video/2020/05/24/40092-424785461_tiny.mp4"></video>
-                        <div class="absolute bottom-3 left-3 bg-black/60 px-2 py-1 rounded text-[10px] font-mono text-harvest-400">Rendering 4K ProRes</div>
-                    </div>
-                </div>
+                <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed">
+                    We architect edge-computed digital marketing engines. From high-retention video editing to full-scale SEO dominance, we build ecosystems that convert.
+                </p>
 
-                <!-- Service Window: Photo & Brand Identity -->
-                <div class="glass-window draggable rounded-2xl overflow-hidden flex flex-col h-[300px]">
-                    <div class="window-header px-4 py-2 flex justify-between items-center">
-                        <span class="text-xs font-mono text-gray-300">02_BRAND_AESTHETICS.psd</span>
-                        <div class="flex space-x-2"><div class="w-2.5 h-2.5 rounded-full bg-red-500"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500"></div></div>
-                    </div>
-                    <div class="relative flex-1 bg-black">
-                        <video loop class="absolute inset-0 w-full h-full object-cover opacity-80" src="https://cdn.pixabay.com/video/2019/04/23/23011-332483100_tiny.mp4"></video>
-                        <div class="absolute bottom-3 left-3 bg-black/60 px-2 py-1 rounded text-[10px] font-mono text-harvest-400">Retouching & Color Grading</div>
-                    </div>
-                </div>
-
-                <!-- Service Window: AI Image Generation -->
-                <div class="glass-window draggable rounded-2xl overflow-hidden flex flex-col h-[300px]">
-                    <div class="window-header px-4 py-2 flex justify-between items-center">
-                        <span class="text-xs font-mono text-gray-300">03_AI_SYNTHESIS.model</span>
-                        <div class="flex space-x-2"><div class="w-2.5 h-2.5 rounded-full bg-red-500"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500"></div></div>
-                    </div>
-                    <div class="relative flex-1 bg-black">
-                        <video loop class="absolute inset-0 w-full h-full object-cover opacity-80" src="https://cdn.pixabay.com/video/2023/10/22/186064-877017646_tiny.mp4"></video>
-                        <div class="absolute bottom-3 left-3 bg-black/60 px-2 py-1 rounded text-[10px] font-mono text-harvest-400">Diffusion Vectors Active</div>
-                    </div>
-                </div>
-
-                <!-- Service Window: Total Digital Marketing -->
-                <div class="glass-window draggable rounded-2xl overflow-hidden flex flex-col h-[300px]">
-                    <div class="window-header px-4 py-2 flex justify-between items-center">
-                        <span class="text-xs font-mono text-gray-300">04_GLOBAL_CAMPAIGN.json</span>
-                        <div class="flex space-x-2"><div class="w-2.5 h-2.5 rounded-full bg-red-500"></div><div class="w-2.5 h-2.5 rounded-full bg-yellow-500"></div><div class="w-2.5 h-2.5 rounded-full bg-green-500"></div></div>
-                    </div>
-                    <div class="relative flex-1 bg-black">
-                        <video loop class="absolute inset-0 w-full h-full object-cover opacity-80" src="https://cdn.pixabay.com/video/2020/02/16/32474-392461014_tiny.mp4"></video>
-                        <div class="absolute bottom-3 left-3 bg-black/60 px-2 py-1 rounded text-[10px] font-mono text-harvest-400">Social Automation Live</div>
-                    </div>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#services" class="bg-harvest-500 text-white text-center px-8 py-4 rounded-2xl font-bold hover:bg-harvest-600 transition transform hover:-translate-y-1 shadow-[0_10px_20px_rgba(255,107,53,0.3)]">
+                        Explore Capabilities
+                    </a>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: Analytics & Telemetry -->
-            <div class="w-1/3 flex flex-col gap-6 h-full pb-20">
-                
-                <!-- Performance Master Dashboard -->
-                <div class="glass-window rounded-2xl flex-1 flex flex-col p-6 overflow-hidden relative">
-                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-harvest-500/20 rounded-full blur-[40px]"></div>
-                    <h2 class="font-display text-2xl font-bold mb-6">Campaign Insights</h2>
+            <!-- Hero 3D Interactive Element -->
+            <div class="tilt-container w-full h-[500px] hidden lg:flex items-center justify-center relative">
+                <!-- The 3D Glass Card -->
+                <div class="tilt-element glass-panel w-[400px] h-[450px] rounded-[2rem] p-6 shadow-2xl relative flex flex-col justify-between" id="hero-3d-card">
+                    <!-- Top Bar -->
+                    <div class="flex justify-between items-center mb-4 transform translate-z-10">
+                        <div class="font-display font-bold text-lg">Live Analytics</div>
+                        <div class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">+340% ROI</div>
+                    </div>
                     
-                    <!-- Progress Metrics -->
-                    <div class="space-y-4 mb-8">
-                        <div>
-                            <div class="flex justify-between text-sm mb-1"><span class="text-gray-400">Brand Reach (Pune Region)</span><span class="text-harvest-400 font-bold">+240%</span></div>
-                            <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-gradient-to-r from-harvest-400 to-harvest-500 h-2 rounded-full w-[85%]"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-1"><span class="text-gray-400">Lead Conversion Rate</span><span class="text-green-400 font-bold">12.4%</span></div>
-                            <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-gradient-to-r from-green-500 to-emerald-400 h-2 rounded-full w-[60%]"></div></div>
-                        </div>
+                    <!-- Decorative Video Element -->
+                    <div class="flex-1 w-full bg-black rounded-xl overflow-hidden relative shadow-inner transform translate-z-20">
+                        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-80">
+                            <source src="https://cdn.pixabay.com/video/2020/05/24/40092-424785461_tiny.mp4" type="video/mp4">
+                        </video>
+                        <div class="absolute inset-0 border-2 border-white/10 rounded-xl"></div>
                     </div>
 
-                    <!-- AI Intelligence Panel -->
-                    <div class="bg-black/40 rounded-xl p-4 border border-red-500/30 mb-4">
-                        <h3 class="text-xs font-mono text-red-400 mb-2 uppercase flex items-center"><svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg> Identified Pain Points</h3>
-                        <p class="text-sm text-gray-300">High bounce rate observed on legacy mobile landing pages due to heavy JS bloat.</p>
-                    </div>
-
-                    <div class="bg-black/40 rounded-xl p-4 border border-harvest-400/30">
-                        <h3 class="text-xs font-mono text-harvest-400 mb-2 uppercase flex items-center"><svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> AI Strategy Variations</h3>
-                        <p class="text-sm text-gray-300">Transitioning UI to static Edge HTML[cite: 2]. Generating 3 short-form dynamic videos for Instagram Reels targeting local demographic.</p>
+                    <!-- Bottom Stats -->
+                    <div class="mt-4 flex gap-4 transform translate-z-10">
+                        <div class="bg-white/50 flex-1 rounded-xl p-3">
+                            <div class="text-xs text-gray-500">Latency</div>
+                            <div class="font-bold text-harvest-500">12ms</div>
+                        </div>
+                        <div class="bg-white/50 flex-1 rounded-xl p-3">
+                            <div class="text-xs text-gray-500">Crawlers</div>
+                            <div class="font-bold text-charcoal">Synced</div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Terminal Simulator window[cite: 3] -->
-                <div class="glass-window rounded-2xl h-[200px] flex flex-col overflow-hidden border-t-2 border-harvest-500">
-                    <div class="window-header px-4 py-2">
-                        <span class="text-xs font-mono text-gray-400">EDGE_WORKER_LOGS</span>
-                    </div>
-                    <div id="terminal-stream" class="flex-1 p-4 bg-black/80 font-mono text-xs overflow-y-auto leading-relaxed shadow-inner">
-                        <!-- Logs inject here via JS[cite: 3] -->
-                    </div>
-                </div>
-
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
 
-    <!-- VELORA CORE ENGINE FRAMEWORK v2.0.0 (Modified for single file) -->
-    <script>
-        // Auth Transition Logic
-        function loginToDashboard() {
-            document.getElementById('auth-screen').classList.add('fade-out');
-            const workspace = document.getElementById('os-workspace');
-            workspace.classList.remove('opacity-0', 'pointer-events-none', 'scale-95');
-            workspace.classList.add('fade-in', 'scale-100');
+    <!-- SERVICES SECTION (Interactive Video Grid) -->
+    <section id="services" class="py-24 relative max-w-7xl mx-auto px-6">
+        <div class="mb-16 md:flex justify-between items-end">
+            <div>
+                <h2 class="font-display text-4xl md:text-5xl font-extrabold mb-4">Disciplines of Mastery</h2>
+                <p class="text-xl text-gray-600 max-w-2xl">Hover to preview our core operational pipelines. Real results require dynamic execution.</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            // Initialize Core Modules post-login[cite: 3]
-            setTimeout(() => {
-                VeloraOS.initClock();
-                VeloraOS.initTelemetry();
-                VeloraOS.optimizeVideoPlayback();
-                VeloraOS.setupWindowInteractions();
-            }, 600);
+            <!-- Service 1: Video Editing -->
+            <div class="video-card group cursor-pointer h-[400px] relative rounded-[2rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2">
+                <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover" onmouseover="this.play()" onmouseout="this.pause();">
+                    <source src="https://cdn.pixabay.com/video/2021/08/11/84687-586749914_tiny.mp4" type="video/mp4">
+                </video>
+                <!-- Overlay that fades on hover -->
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
+                    <div class="w-10 h-10 bg-harvest-500 rounded-full flex items-center justify-center mb-4 text-white shadow-lg group-hover:scale-110 transition">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-2">Cinematic Editing</h3>
+                    <p class="text-gray-300 text-sm opacity-100 group-hover:opacity-0 transition-opacity">High-retention visual storytelling.</p>
+                </div>
+            </div>
+
+            <!-- Service 2: Photo/Brand Editing -->
+            <div class="video-card group cursor-pointer h-[400px] relative rounded-[2rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2">
+                <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover" onmouseover="this.play()" onmouseout="this.pause();">
+                    <source src="https://cdn.pixabay.com/video/2019/04/23/23011-332483100_tiny.mp4" type="video/mp4">
+                </video>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
+                    <div class="w-10 h-10 bg-harvest-400 rounded-full flex items-center justify-center mb-4 text-white shadow-lg group-hover:scale-110 transition">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-2">Brand Aesthetics</h3>
+                    <p class="text-gray-300 text-sm opacity-100 group-hover:opacity-0 transition-opacity">Premium retouching & identity design.</p>
+                </div>
+            </div>
+
+            <!-- Service 3: AI Generation -->
+            <div class="video-card group cursor-pointer h-[400px] relative rounded-[2rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2">
+                <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover" onmouseover="this.play()" onmouseout="this.pause();">
+                    <source src="https://cdn.pixabay.com/video/2023/10/22/186064-877017646_tiny.mp4" type="video/mp4">
+                </video>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
+                    <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center mb-4 text-white shadow-lg group-hover:scale-110 transition">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-2">AI Synthesis</h3>
+                    <p class="text-gray-300 text-sm opacity-100 group-hover:opacity-0 transition-opacity">Custom models for rapid content scaling.</p>
+                </div>
+            </div>
+
+            <!-- Service 4: Total Digital Marketing -->
+            <div class="video-card group cursor-pointer h-[400px] relative rounded-[2rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2">
+                <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover" onmouseover="this.play()" onmouseout="this.pause();">
+                    <source src="https://cdn.pixabay.com/video/2020/02/16/32474-392461014_tiny.mp4" type="video/mp4">
+                </video>
+                <div class="overlay absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
+                <div class="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
+                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mb-4 text-white shadow-lg group-hover:scale-110 transition">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-white mb-2">Digital Marketing</h3>
+                    <p class="text-gray-300 text-sm opacity-100 group-hover:opacity-0 transition-opacity">SEO, Social, and Performance Ads.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER / TRUST SECTION -->
+    <footer class="bg-white/40 border-t border-gray-200 mt-12 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <div class="font-display text-2xl font-extrabold tracking-tight text-charcoal mb-2">
+                    Data<span class="text-harvest-500">Drive.</span>
+                </div>
+                <p class="text-sm text-gray-500 max-w-xs">Operating from Pimpri-Chinchwad, Maharashtra. Delivering global results.</p>
+            </div>
+            <div class="text-right">
+                <p class="text-xs font-mono text-gray-400 mb-2 uppercase tracking-widest">Engineered with pure code. Zero page-builders.</p>
+                <a href="mailto:hello@youragency.in" class="text-lg font-medium text-charcoal hover:text-harvest-500 transition">
+                    Initiate Contact &rarr;
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE 3D SCRIPT -->
+    <script>
+        // Smooth 3D Parallax logic for Hero Card
+        const card = document.getElementById('hero-3d-card');
+        const container = document.querySelector('.tilt-container');
+
+        if(container && card) {
+            container.addEventListener('mousemove', (e) => {
+                const rect = container.getBoundingClientRect();
+                const x = e.clientX - rect.left; // x position within the element
+                const y = e.clientY - rect.top;  // y position within the element
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Calculate rotation (max 15 degrees)
+                const rotateX = ((y - centerY) / centerY) * -15;
+                const rotateY = ((x - centerX) / centerX) * 15;
+
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+                card.style.transition = `transform 0.5s ease-out`;
+            });
+
+            container.addEventListener('mouseenter', () => {
+                card.style.transition = `transform 0.1s ease-out`; // remove transition for smooth tracking
+            });
         }
 
-        const VeloraOS = {
-            // 1. Live OS Clock Synchronization Engine[cite: 3]
-            initClock: () => {
-                const clockElement = document.getElementById('os-clock');
-                if (!clockElement) return;
-
-                const syncTime = () => {
-                    const now = new Date();
-                    clockElement.innerText = now.toLocaleTimeString('en-US', {
-                        hour12: true, hour: '2-digit', minute: '2-digit', second: '2-digit'
-                    });
-                };
-                setInterval(syncTime, 1000);
-                syncTime();
-            },
-
-            // 2. Mock Telemetry Real-time Log Streamer (Terminal Simulator)[cite: 3]
-            initTelemetry: () => {
-                const terminalLog = document.getElementById('terminal-stream');
-                if (!terminalLog) return;
-
-                const logFeeds = [
-                    { text: "◇ Parsing incoming Googlebot vector pathways...", color: "text-gray-400" },
-                    { text: "> Syncing index maps with Cloudflare Edge Workers...", color: "text-harvest-400" },
-                    { text: "✓ Routing 4K ProRes pipelines directly to VRAM arrays.", color: "text-green-400" },
-                    { text: "[INFO] Edge Delivery network status: 100% Optimal.", color: "text-blue-400" },
-                    { text: "> Crawl requests synchronized with dynamic JSON-LD models.", color: "text-purple-400" }
-                ];
-
-                let index = 0;
-                setInterval(() => {
-                    const line = document.createElement('p');
-                    line.className = `${logFeeds[index].color} mt-1 transition-all opacity-0 transform translate-x-[-4px] duration-300`;
-                    line.innerText = logFeeds[index].text;
-                    
-                    terminalLog.appendChild(line);
-                    
-                    setTimeout(() => line.classList.remove('opacity-0', 'translate-x-[-4px]'), 50);
-                    terminalLog.scrollTop = terminalLog.scrollHeight;
-                    index = (index + 1) % logFeeds.length;
-
-                    if (terminalLog.children.length > 30) {
-                        terminalLog.removeChild(terminalLog.firstChild);
-                    }
-                }, 2500);
-            },
-
-            // 3. Hardware Acceleration & Memory Management for Multi-Video Windows[cite: 3]
-            optimizeVideoPlayback: () => {
-                const backgroundVideos = document.querySelectorAll('video');
-                
-                const videoObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        const video = entry.target;
-                        if (!entry.isIntersecting) {
-                            video.pause(); // Pause playback if user scrolls past to avoid VRAM choke points[cite: 3]
-                        } else {
-                            const playPromise = video.play();
-                            if (playPromise !== undefined) {
-                                playPromise.catch(() => {});
-                            }
-                        }
-                    });
-                }, { threshold: 0.1 });
-
-                backgroundVideos.forEach(video => {
-                    video.setAttribute('playsinline', '');
-                    video.setAttribute('muted', '');
-                    video.preload = "auto";
-                    videoObserver.observe(video);
-                });
-            },
-
-            // 4. Clean Focus Event Triggers for Windows[cite: 3]
-            setupWindowInteractions: () => {
-                const windows = document.querySelectorAll('.glass-window');
-                windows.forEach(win => {
-                    win.addEventListener('mouseenter', () => {
-                        win.style.borderColor = 'rgba(255, 107, 53, 0.4)'; // Orange harvest accent feedback[cite: 3]
-                    });
-                    win.addEventListener('mouseleave', () => {
-                        win.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                    });
-                });
+        // Navbar blur effect on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                nav.classList.add('bg-white/30', 'backdrop-blur-lg', 'shadow-sm');
+            } else {
+                nav.classList.remove('bg-white/30', 'backdrop-blur-lg', 'shadow-sm');
             }
-        };
+        });
     </script>
 </body>
 </html>
