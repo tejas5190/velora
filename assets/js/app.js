@@ -1,35 +1,40 @@
-/**
- * Velora Immersive Engine
- * Handling Asset Injectors & Performance Observers
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Icon Asset Pack (Lucide)
-    // Yeh tere saare <i data-lucide="icon-name"> tags ko actual crisp SVGs mein convert kar dega
+    // 1. Render Premium Icons
     lucide.createIcons();
 
-    // 2. Hardware Accelerated Video Optimization (VRAM Protection)
-    // Ye check karega ki agar video screen par nahi hai, toh pause kar de taaki mobile heat na mare.
-    const mediaElements = document.querySelectorAll('video');
-    
-    const mediaObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const media = entry.target;
-            if (entry.isIntersecting) {
-                // Play and catch exceptions to prevent browser auto-play block errors
-                const playPromise = media.play();
-                if (playPromise !== undefined) {
-                    playPromise.catch(() => { /* handled */ });
-                }
-            } else {
-                media.pause();
-            }
-        });
-    }, { 
-        // Trigger 10% before it enters/leaves the screen
-        rootMargin: '10% 0px 10% 0px',
-        threshold: 0 
+    // 2. Sticky Glass Navigation Physics
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('shadow-md', 'bg-white/95');
+            nav.classList.remove('bg-white/80');
+        } else {
+            nav.classList.remove('shadow-md', 'bg-white/95');
+            nav.classList.add('bg-white/80');
+        }
     });
 
-    mediaElements.forEach(media => mediaObserver.observe(media));
+    // 3. Reveal Elements on Scroll (Editorial feel)
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Apply fade-in to articles
+    document.querySelectorAll('article, #founder .lg\\:w-7\\/12').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        observer.observe(el);
+    });
 });
