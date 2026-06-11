@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velora | Stories That Move Markets</title>
+    <title>Velora Marketing | Award-Winning Digital Agency</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Editorial Fonts (Austria Style) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -14,14 +15,14 @@
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        serif: ['Cinzel', 'serif'],
+                        serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
                         brand: {
-                            dark: '#0a0806',     // Pitch dark bronze
-                            gold: '#D4AF37',     // Premium Gold
-                            accent: '#8B6508',   // Deep Gold
-                            light: '#FDFBF7'     // Off-white parchment
+                            white: '#FFFFFF',
+                            pearl: '#F8F9FA',    // Soft off-white for sections
+                            slate: '#1A1A1A',    // Deep gray for readable text
+                            accent: '#FF4500',   // Vibrant Orange/Coral for CTAs (Like Austria's red, but fresh)
                         }
                     }
                 }
@@ -30,118 +31,177 @@
     </script>
 
     <link rel="stylesheet" href="./assets/css/style.css">
-    
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-brand-dark text-brand-light antialiased overflow-x-hidden selection:bg-brand-gold selection:text-brand-dark">
+<body class="bg-brand-white text-brand-slate antialiased overflow-x-hidden selection:bg-brand-accent selection:text-white">
 
-    <nav class="fixed w-full top-0 z-50 transition-all duration-500 bg-gradient-to-b from-brand-dark/90 to-transparent pt-6 pb-10 px-8 lg:px-16 flex justify-between items-center">
-        <div class="font-serif text-3xl font-black tracking-widest text-brand-gold drop-shadow-lg">
-            VELORA<span class="text-white">.</span>
+    <!-- NAVIGATION (Glass & Clean) -->
+    <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-all duration-300 py-4 px-8 lg:px-16 flex justify-between items-center">
+        <div class="font-serif text-3xl font-bold tracking-tight text-brand-slate">
+            VELORA<span class="text-brand-accent">.</span>
         </div>
-        <div class="hidden md:flex gap-8 font-sans text-sm tracking-widest uppercase text-white/80">
-            <a href="#editorial" class="hover:text-brand-gold transition-colors">Disciplines</a>
-            <a href="#contact" class="hover:text-brand-gold transition-colors">Command Center</a>
+        <div class="hidden md:flex gap-8 font-sans text-sm font-medium text-gray-600">
+            <a href="#expertise" class="hover:text-brand-accent transition-colors">Our Expertise</a>
+            <a href="#founder" class="hover:text-brand-accent transition-colors">The Founder</a>
+            <a href="#work" class="hover:text-brand-accent transition-colors">Case Studies</a>
         </div>
-        <button class="flex items-center gap-2 text-brand-dark bg-brand-gold hover:bg-white px-6 py-2.5 font-sans font-semibold tracking-wide transition-all rounded-sm">
-            <span>INITIATE</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        <button class="bg-brand-accent hover:bg-orange-700 text-white px-6 py-2.5 rounded-full font-sans text-sm font-medium transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
+            Start a Campaign <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </button>
     </nav>
 
-    <header class="relative w-full h-[120vh]">
+    <!-- HERO SECTION (Sticky Bright Video) -->
+    <header class="relative w-full h-[100vh]">
         <div class="sticky top-0 w-full h-screen overflow-hidden">
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60">
-                <source src="https://cdn.pixabay.com/video/2022/04/24/115003-703348882_large.mp4" type="video/mp4">
+            <!-- Bright, collaborative agency video -->
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover">
+                <source src="https://cdn.pixabay.com/video/2020/03/19/33869-402927902_large.mp4" type="video/mp4">
             </video>
             
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-brand-dark/20 mix-blend-multiply"></div>
+            <!-- Soft White Overlay for text readability -->
+            <div class="absolute inset-0 bg-white/30 backdrop-blur-[2px]"></div>
             
-            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 mt-20">
-                <i data-lucide="crown" class="w-12 h-12 text-brand-gold mb-6 opacity-80"></i>
-                <h1 class="font-serif text-5xl md:text-8xl lg:text-[9rem] font-black tracking-widest uppercase text-white leading-none mb-6 drop-shadow-2xl">
-                    Imperial <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-[#F9F1CC]">Growth</span>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-20">
+                <h1 class="font-serif text-5xl md:text-7xl lg:text-[6rem] font-bold text-brand-slate leading-tight mb-6 max-w-5xl">
+                    Digital Growth, <br> <span class="italic text-brand-accent">Perfected.</span>
                 </h1>
-                <p class="font-sans text-sm md:text-lg tracking-[0.4em] uppercase text-brand-gold/90 max-w-2xl">
-                    Architecting Digital Authority across the global market.
+                <p class="font-sans text-lg md:text-xl text-gray-800 font-medium max-w-2xl mb-10">
+                    We turn attention into revenue. Full-funnel digital marketing strategies crafted for ambitious brands.
                 </p>
-                
-                <div class="absolute bottom-12 flex flex-col items-center animate-bounce opacity-70">
-                    <span class="text-xs tracking-[0.2em] uppercase mb-2">Descend</span>
-                    <i data-lucide="chevron-down" class="text-brand-gold w-6 h-6"></i>
-                </div>
+                <button class="bg-brand-slate text-white px-8 py-4 rounded-full font-sans font-medium text-lg hover:bg-gray-800 transition-all shadow-xl flex items-center gap-3">
+                    Explore Our Ecosystem <i data-lucide="arrow-down" class="w-5 h-5 animate-bounce"></i>
+                </button>
             </div>
         </div>
     </header>
 
-    <main id="editorial" class="relative z-20 bg-brand-dark w-full pb-32 pt-20 shadow-[0_-20px_50px_rgba(10,8,6,1)]">
+    <!-- EXPERTISE SECTION (The Overlapping White Block - Austria Style) -->
+    <!-- Notice the -mt-32 to make it overlap the video above -->
+    <main id="expertise" class="relative z-20 bg-brand-white w-full rounded-t-[3rem] -mt-32 pt-24 pb-32 px-8 lg:px-20 shadow-[0_-20px_50px_rgba(0,0,0,0.05)]">
         
-        <div class="px-8 lg:px-20 max-w-[1600px] mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-brand-gold/20 pb-8">
-                <h2 class="font-serif text-4xl md:text-6xl text-brand-light">The <span class="text-brand-gold italic">Arsenal</span></h2>
-                <p class="font-sans text-brand-light/60 max-w-sm text-sm tracking-wide mt-4 md:mt-0 leading-relaxed">
-                    We do not play games with templates. We build bespoke digital infrastructures that crush local competition.
-                </p>
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold text-brand-slate mb-4">The Complete Digital Ecosystem</h2>
+                <p class="font-sans text-gray-500 max-w-2xl mx-auto text-lg">We don't offer piecemeal services. We build synchronized marketing engines that capture leads, build trust, and drive sales.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            <!-- The 4 Pillars (Clean Grid without confusion) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
                 
-                <article class="md:col-span-8 group cursor-pointer relative overflow-hidden rounded-sm bg-black aspect-[16/9]">
-                    <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=2071&auto=format&fit=crop" alt="Cinematography Asset" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-in-out">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
-                    
-                    <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full flex justify-between items-end">
-                        <div>
-                            <div class="flex items-center gap-3 mb-3">
-                                <i data-lucide="video" class="text-brand-gold w-5 h-5"></i>
-                                <span class="font-sans text-xs tracking-[0.2em] text-brand-gold uppercase">01. Service</span>
-                            </div>
-                            <h3 class="font-serif text-3xl md:text-5xl text-white">Cinematic Architecture</h3>
-                        </div>
-                        <div class="w-12 h-12 rounded-full border border-brand-gold flex items-center justify-center bg-brand-dark/50 group-hover:bg-brand-gold text-brand-gold group-hover:text-brand-dark transition-colors backdrop-blur-md">
-                            <i data-lucide="play" class="w-5 h-5 ml-1"></i>
-                        </div>
+                <!-- Pillar 1: Traffic & Ads -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-2xl aspect-[4/3] mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Data and Ads" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-sans text-xs font-bold uppercase tracking-wide text-brand-accent">01. Acquisition</div>
                     </div>
+                    <h3 class="font-serif text-3xl font-bold mb-3 group-hover:text-brand-accent transition-colors">Performance Marketing</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Google Ads, Meta Ads, and programmatic buying. We don't guess; we buy data, optimize ruthlessly, and scale your ROAS aggressively.</p>
+                    <a href="#" class="inline-flex items-center gap-2 font-sans font-semibold text-brand-slate hover:text-brand-accent transition-colors">
+                        View Ad Strategies <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
                 </article>
 
-                <article class="md:col-span-4 group cursor-pointer relative overflow-hidden rounded-sm bg-black md:-mt-24 h-[500px] md:h-auto">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1974&auto=format&fit=crop" alt="Tech Asset" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-in-out grayscale group-hover:grayscale-0">
-                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
-                    
-                    <div class="absolute bottom-0 left-0 p-8 w-full">
-                        <div class="flex items-center gap-3 mb-3">
-                            <i data-lucide="cpu" class="text-brand-gold w-5 h-5"></i>
-                            <span class="font-sans text-xs tracking-[0.2em] text-brand-gold uppercase">02. Infrastructure</span>
-                        </div>
-                        <h3 class="font-serif text-3xl text-white mb-2">Algorithmic Dominance</h3>
-                        <p class="font-sans text-sm text-brand-light/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
-                            SEO and code architectures engineered directly for modern AI crawlers.
-                        </p>
+                <!-- Pillar 2: Organic & SEO -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-2xl aspect-[4/3] mb-6 relative mt-0 md:mt-12">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="SEO Traffic" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-sans text-xs font-bold uppercase tracking-wide text-brand-accent">02. Authority</div>
                     </div>
+                    <h3 class="font-serif text-3xl font-bold mb-3 group-hover:text-brand-accent transition-colors">SEO & Content Architecture</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Dominating search engines requires technical edge-rendering and deep content silos. We make you the undeniable authority in your niche.</p>
+                    <a href="#" class="inline-flex items-center gap-2 font-sans font-semibold text-brand-slate hover:text-brand-accent transition-colors">
+                        Explore Organic Growth <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
                 </article>
 
-                <article class="md:col-span-12 group cursor-pointer relative overflow-hidden rounded-sm bg-black aspect-[21/9] mt-4 md:mt-0">
-                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
-                        <source src="https://cdn.pixabay.com/video/2019/04/23/23011-332483100_tiny.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/60 to-transparent"></div>
-                    
-                    <div class="absolute top-0 left-0 h-full p-8 md:p-16 flex flex-col justify-center max-w-3xl">
-                        <div class="flex items-center gap-3 mb-4">
-                            <i data-lucide="pen-tool" class="text-brand-gold w-5 h-5"></i>
-                            <span class="font-sans text-xs tracking-[0.2em] text-brand-gold uppercase">03. Aesthetics</span>
-                        </div>
-                        <h3 class="font-serif text-4xl md:text-6xl text-white mb-6 leading-tight">Visuals that dictate <br> premium pricing.</h3>
-                        <button class="w-fit flex items-center gap-2 border-b border-brand-gold pb-1 text-brand-gold hover:text-white hover:border-white transition-colors group-hover:pl-4 duration-300">
-                            <span class="font-sans text-sm tracking-widest uppercase">Explore Case Studies</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </button>
+                <!-- Pillar 3: Social & Creative -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-2xl aspect-[4/3] mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop" alt="Social Media" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-sans text-xs font-bold uppercase tracking-wide text-brand-accent">03. Engagement</div>
                     </div>
+                    <h3 class="font-serif text-3xl font-bold mb-3 group-hover:text-brand-accent transition-colors">Social Media & PR</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">Scroll-stopping video editing, viral short-form content, and community management. We turn your audience into loyal brand advocates.</p>
+                    <a href="#" class="inline-flex items-center gap-2 font-sans font-semibold text-brand-slate hover:text-brand-accent transition-colors">
+                        See Creative Portfolios <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </article>
+
+                <!-- Pillar 4: Web Dev & Automation -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-2xl aspect-[4/3] mb-6 relative mt-0 md:mt-12">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" alt="Web Development" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full font-sans text-xs font-bold uppercase tracking-wide text-brand-accent">04. Infrastructure</div>
+                    </div>
+                    <h3 class="font-serif text-3xl font-bold mb-3 group-hover:text-brand-accent transition-colors">Web Dev & Automation</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">High-converting landing pages, CRM integrations, and automated email sequences. The technical backbone that never sleeps.</p>
+                    <a href="#" class="inline-flex items-center gap-2 font-sans font-semibold text-brand-slate hover:text-brand-accent transition-colors">
+                        View Tech Stack <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
                 </article>
 
             </div>
         </div>
     </main>
+
+    <!-- THE FOUNDER SECTION (Magazine Editorial Style using LinkedIn Info) -->
+    <section id="founder" class="bg-brand-pearl py-32 px-8 lg:px-20 border-t border-gray-200">
+        <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <!-- Ashwini's Portrait Placeholder -->
+            <div class="w-full lg:w-5/12 relative">
+                <div class="aspect-[4/5] rounded-t-full overflow-hidden border-8 border-white shadow-2xl relative">
+                    <!-- Replace with Ashwini's actual LinkedIn Photo -->
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" alt="Ashwini Ratnaparkhi" class="w-full h-full object-cover">
+                </div>
+                <!-- Award Badge -->
+                <div class="absolute -bottom-6 -right-6 bg-brand-accent text-white p-6 rounded-full shadow-xl flex flex-col items-center justify-center w-36 h-36 text-center animate-pulse-slow">
+                    <i data-lucide="award" class="w-8 h-8 mb-1"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-widest leading-tight">Woman<br>Entrepreneur<br>Award</span>
+                </div>
+            </div>
+
+            <!-- Editorial Copy -->
+            <div class="w-full lg:w-7/12">
+                <h4 class="font-sans text-brand-accent font-bold tracking-widest uppercase mb-4 text-sm">Vision & Leadership</h4>
+                <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-brand-slate leading-tight mb-8">
+                    "Marketing isn't about noise. It's about <span class="italic text-brand-accent">precise influence.</span>"
+                </h2>
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    Led by <strong>Ashwini Ratnaparkhi</strong>, an award-winning entrepreneur, Velora Marketing Agency was built on a singular premise: delivering measurable growth without the corporate fluff. 
+                </p>
+                <p class="text-gray-600 text-lg mb-10 leading-relaxed">
+                    With a deep understanding of global market dynamics and consumer psychology, Ashwini and her team engineer strategies that transform local businesses into industry leaders. We don't just run campaigns; we build sustainable digital empires.
+                </p>
+                
+                <div class="flex items-center gap-6">
+                    <a href="https://www.linkedin.com/in/ashwini-ratnaparkhi/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-sans font-medium transition-all shadow-md flex items-center gap-2">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i> Connect on LinkedIn
+                    </a>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png" alt="LinkedIn Verified" class="h-8 grayscale opacity-50">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Clean & Actionable) -->
+    <footer class="bg-brand-slate text-white py-20 px-8 lg:px-20">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 border-b border-gray-800 pb-16 mb-10">
+            <div>
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 leading-tight">Ready to dominate <br> your market?</h2>
+                <button class="bg-brand-accent hover:bg-orange-600 text-white px-8 py-4 rounded-full font-sans font-semibold transition-all shadow-lg flex items-center gap-3 text-lg">
+                    Schedule a Strategy Call <i data-lucide="calendar" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="text-right">
+                <p class="font-serif text-3xl font-bold text-brand-accent mb-2">VELORA.</p>
+                <p class="text-gray-400 font-sans">Baner, Pune, Maharashtra</p>
+                <a href="mailto:hello@veloramarketing.com" class="text-gray-300 hover:text-white mt-4 inline-block underline">hello@veloramarketing.com</a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto text-center font-sans text-sm text-gray-500">
+            <p>&copy; 2026 Velora Marketing Agency. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="./assets/js/app.js"></script>
 </body>
