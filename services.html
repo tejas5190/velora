@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Velora Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
+                    colors: { brand: { white: '#FFFFFF', pearl: '#F8F9FA', slate: '#1A1A1A', accent: '#FF4500' } }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-white text-brand-slate antialiased">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 py-4 px-8 flex justify-between items-center">
+        <a href="index.html" class="font-serif text-2xl font-bold tracking-tight text-brand-slate">VELORA<span class="text-brand-accent">.</span></a>
+        <div class="hidden md:flex gap-8 font-sans text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
+            <a href="services.html" class="text-brand-accent transition-colors">Services</a>
+            <a href="about.html" class="hover:text-brand-accent transition-colors">About Us</a>
+            <a href="contact.html" class="hover:text-brand-accent transition-colors">Contact</a>
+        </div>
+        <a href="contact.html" class="bg-brand-accent hover:bg-orange-700 text-white px-6 py-2 rounded-full font-sans text-sm font-medium transition-all">Start a Campaign</a>
+    </nav>
+
+    <!-- HERO SECTION (Sticky, smaller height) -->
+    <header class="relative w-full h-[60vh]">
+        <div class="sticky top-0 w-full h-[60vh] overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-brand-slate/60 backdrop-blur-[2px]"></div>
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 pt-10">
+                <h1 class="font-serif text-5xl md:text-6xl font-bold text-white mb-4">Precision <span class="italic text-brand-accent">Capabilities.</span></h1>
+                <p class="font-sans text-lg text-brand-pearl font-medium max-w-xl">We engineer digital systems that predictably generate revenue and scale market share.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- SERVICES DETAILED LIST (Overlapping Block) -->
+    <main class="relative z-20 bg-brand-white w-full rounded-t-[3rem] -mt-20 pt-20 pb-32 px-8 lg:px-20 shadow-[0_-20px_50px_rgba(0,0,0,0.05)]">
+        <div class="max-w-5xl mx-auto space-y-24">
+            
+            <!-- Service 1 -->
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/2 aspect-square rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="text-brand-accent font-bold tracking-widest uppercase text-xs mb-2 block">01. Acquisition Engine</span>
+                    <h2 class="font-serif text-4xl font-bold mb-4">Performance Marketing</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">We don't buy ads; we buy customers. Our programmatic media buying strategies across Meta and Google are designed to maximize your Return on Ad Spend (ROAS). We utilize dynamic retargeting, A/B creative testing, and machine learning bids to outsmart your competitors.</p>
+                    <ul class="space-y-3 font-sans text-sm text-gray-700 font-medium">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Google Ads & PPC Campaigns</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Meta & LinkedIn Advertising</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Conversion Rate Optimization (CRO)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+                <div class="w-full md:w-1/2 aspect-square rounded-2xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="text-brand-accent font-bold tracking-widest uppercase text-xs mb-2 block">02. Community & Brand</span>
+                    <h2 class="font-serif text-4xl font-bold mb-4">Social Media Dominance</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">Brands aren't built in boardrooms; they're built in comment sections. We craft viral, short-form content and maintain a magnetic social presence that turns passive scrollers into passionate brand advocates.</p>
+                    <ul class="space-y-3 font-sans text-sm text-gray-700 font-medium">
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Instagram Reels & TikTok Strategy</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> High-End Cinematography & Editing</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-accent"></i> Influencer & PR Management</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer Simple -->
+    <footer class="bg-brand-slate text-white py-12 text-center text-sm">
+        <p>&copy; 2026 Velora Marketing Agency. All rights reserved.</p>
+    </footer>
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
