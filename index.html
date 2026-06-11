@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Local SEO Flex for Pimpri-Chinchwad & Pune -->
-    <title>Premium Digital Marketing Agency | Pune & PCMC</title>
-    <meta name="description" content="We don't use templates. We build custom, edge-computed digital authorities for premium brands.">
+    <title>Velora | Stories That Move Markets</title>
     
-    <!-- Premium Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
+    <!-- Deep Regal Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
                     },
                     colors: {
-                        harvest: { 50: '#FDFBF7', 100: '#FEF3C7', 400: '#FFB142', 500: '#FF6B35', 600: '#E85D2C' },
-                        charcoal: '#111827',
+                        brand: {
+                            dark: '#0c0a09',     // Deepest stone/bronze
+                            gold: '#D4AF37',     // Antique Gold
+                            emerald: '#0A2117',  // Deep forest/emerald from the 'V' wing
+                            light: '#E6D5B8'     // Parchment text
+                        }
                     }
                 }
             }
@@ -30,259 +31,308 @@
     </script>
 
     <style>
-        body { background-color: #FDFBF7; overflow-x: hidden; }
+        body { background-color: #0c0a09; color: #E6D5B8; overflow-x: hidden; }
         
-        /* Premium Glassmorphism */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        /* Utility: Hide Scrollbar for Carousel */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom Scrollbar for the Detail View */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0c0a09; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; }
+
+        /* Cinematic Intro Transitions */
+        #intro-gate { transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s ease; }
+        .intro-hidden { opacity: 0; pointer-events: none; transform: scale(1.05); }
+        
+        /* Interface State Transitions */
+        .state-layer { transition: opacity 0.6s ease; }
+        .hidden-state { opacity: 0; pointer-events: none; position: absolute; top: 0; left: 0; w: 100%; }
+        
+        /* PIP Video Framing */
+        .pip-frame {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .pip-frame:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(212, 175, 55, 0.8);
+            box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.2);
+            cursor: pointer;
         }
 
-        /* 3D Container specific styles */
-        .tilt-container { perspective: 1000px; transform-style: preserve-3d; }
-        .tilt-element { transition: transform 0.1s ease-out; }
-        
-        /* Ambient Animated Blobs */
-        .blob {
-            position: absolute; filter: blur(80px); z-index: -1;
-            animation: moveBlob 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        /* Gold Gradient Text */
+        .gold-text {
+            background: linear-gradient(to bottom right, #F9F1CC, #D4AF37, #8B6508);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        @keyframes moveBlob {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(50px, 50px) scale(1.1); }
-        }
-
-        /* Video Hover Overlay */
-        .video-card .overlay { transition: opacity 0.3s ease; }
-        .video-card:hover .overlay { opacity: 0; }
     </style>
 </head>
-<body class="text-charcoal font-sans antialiased selection:bg-harvest-500 selection:text-white">
+<body class="antialiased selection:bg-brand-gold selection:text-brand-dark relative min-h-screen">
 
-    <!-- Ambient Background Gradients -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
-        <div class="blob w-[600px] h-[600px] bg-harvest-400/20 rounded-full top-[-10%] right-[-10%]"></div>
-        <div class="blob w-[500px] h-[500px] bg-harvest-500/15 rounded-full bottom-[-20%] left-[-10%]" style="animation-delay: -5s;"></div>
+    <!-- ==========================================
+         LAYER 1: INTRO GATE (Landing Screen)
+         ========================================== -->
+    <div id="intro-gate" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-brand-dark">
+        <div class="text-center">
+            <!-- Utilizing the logo aesthetic and exact tagline -->
+            <h1 class="font-serif text-6xl md:text-8xl font-black tracking-widest gold-text mb-4 drop-shadow-2xl">
+                VELORA
+            </h1>
+            <p class="font-sans text-sm md:text-base tracking-[0.3em] text-brand-gold uppercase opacity-80 mb-12">
+                Stories That Move Markets
+            </p>
+            <button onclick="SystemController.unlockInterface()" class="px-8 py-3 border border-brand-gold/50 text-brand-gold font-serif tracking-widest hover:bg-brand-gold hover:text-brand-dark transition-all duration-500">
+                ENTER
+            </button>
+        </div>
+        <!-- Ambient Background Texture overlay -->
+        <div class="absolute inset-0 z-[-1] opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-overlay"></div>
     </div>
 
-    <!-- Navigation -->
-    <header class="fixed w-full top-0 z-50 p-4 md:p-6 transition-all duration-300" id="navbar">
-        <nav class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-4 flex justify-between items-center">
-            <div class="font-display text-2xl font-extrabold tracking-tight">
-                Data<span class="text-harvest-500">Drive.</span>
-            </div>
-            <ul class="hidden md:flex space-x-8 font-medium text-sm text-gray-700">
-                <li><a href="#services" class="hover:text-harvest-500 transition">Capabilities</a></li>
-                <li><a href="#performance" class="hover:text-harvest-500 transition">Infrastructure</a></li>
-            </ul>
-            <!-- Link this to the OS Dashboard later -->
-            <button class="bg-charcoal text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-gray-800 transition transform hover:-translate-y-0.5 shadow-lg flex items-center gap-2">
-                Client Portal <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            </button>
-        </nav>
-    </header>
+    <!-- ==========================================
+         LAYER 2: HUB (PIP Video Carousel)
+         ========================================== -->
+    <main id="hub-interface" class="state-layer hidden-state min-h-screen flex flex-col justify-center pt-20 pb-10">
+        <div class="px-8 md:px-16 mb-8">
+            <h2 class="font-serif text-3xl md:text-5xl gold-text mb-2">Our Disciplines</h2>
+            <p class="font-sans text-brand-light/60 max-w-xl">Select a domain to witness our execution architecture.</p>
+        </div>
 
-    <!-- HERO SECTION (Interactive 3D) -->
-    <main class="min-h-screen flex items-center pt-24 pb-12 max-w-7xl mx-auto px-6 relative">
-        <div class="grid lg:grid-cols-2 gap-12 items-center w-full">
+        <!-- Horizontal Scroll Track -->
+        <div class="flex overflow-x-auto gap-8 px-8 md:px-16 pb-12 pt-4 no-scrollbar items-center snap-x snap-mandatory">
             
-            <!-- Hero Copy -->
-            <div class="space-y-8 z-10">
-                <div class="inline-flex items-center space-x-2 bg-white/80 border border-harvest-400/30 px-4 py-2 rounded-full shadow-sm backdrop-blur-md">
-                    <span class="relative flex h-3 w-3">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-harvest-500 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-3 w-3 bg-harvest-500"></span>
-                    </span>
-                    <span class="text-xs font-bold tracking-wide text-gray-800 uppercase">Pimpri-Chinchwad & Pune</span>
-                </div>
-
-                <h1 class="font-display text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight">
-                    Stop Buying Templates. <br>
-                    Invest in <span class="text-transparent bg-clip-text bg-gradient-to-r from-harvest-500 to-harvest-400">Authority.</span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed">
-                    We architect edge-computed digital marketing engines. From high-retention video editing to full-scale SEO dominance, we build ecosystems that convert.
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#services" class="bg-harvest-500 text-white text-center px-8 py-4 rounded-2xl font-bold hover:bg-harvest-600 transition transform hover:-translate-y-1 shadow-[0_10px_20px_rgba(255,107,53,0.3)]">
-                        Explore Capabilities
-                    </a>
-                </div>
-            </div>
-
-            <!-- Hero 3D Interactive Element -->
-            <div class="tilt-container w-full h-[500px] hidden lg:flex items-center justify-center relative">
-                <!-- The 3D Glass Card -->
-                <div class="tilt-element glass-panel w-[400px] h-[450px] rounded-[2rem] p-6 shadow-2xl relative flex flex-col justify-between" id="hero-3d-card">
-                    <!-- Top Bar -->
-                    <div class="flex justify-between items-center mb-4 transform translate-z-10">
-                        <div class="font-display font-bold text-lg">Live Analytics</div>
-                        <div class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold">+340% ROI</div>
-                    </div>
-                    
-                    <!-- Decorative Video Element -->
-                    <div class="flex-1 w-full bg-black rounded-xl overflow-hidden relative shadow-inner transform translate-z-20">
-                        <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-80">
-                            <source src="https://cdn.pixabay.com/video/2020/05/24/40092-424785461_tiny.mp4" type="video/mp4">
-                        </video>
-                        <div class="absolute inset-0 border-2 border-white/10 rounded-xl"></div>
-                    </div>
-
-                    <!-- Bottom Stats -->
-                    <div class="mt-4 flex gap-4 transform translate-z-10">
-                        <div class="bg-white/50 flex-1 rounded-xl p-3">
-                            <div class="text-xs text-gray-500">Latency</div>
-                            <div class="font-bold text-harvest-500">12ms</div>
-                        </div>
-                        <div class="bg-white/50 flex-1 rounded-xl p-3">
-                            <div class="text-xs text-gray-500">Crawlers</div>
-                            <div class="font-bold text-charcoal">Synced</div>
-                        </div>
+            <!-- PIP Item: Video Editing -->
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px] flex flex-col gap-4 group" onclick="SystemController.openDetail('video')">
+                <div class="pip-frame relative w-full aspect-video rounded-sm overflow-hidden bg-black">
+                    <video class="hub-video w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" loop muted playsinline>
+                        <source src="https://cdn.pixabay.com/video/2020/05/24/40092-424785461_tiny.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute bottom-4 left-4 bg-black/80 px-3 py-1 border-l-2 border-brand-gold">
+                        <span class="font-serif text-sm tracking-wider text-brand-gold uppercase">01. Cinematography</span>
                     </div>
                 </div>
             </div>
+
+            <!-- PIP Item: Digital Authority (Social/Marketing) -->
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px] flex flex-col gap-4 group" onclick="SystemController.openDetail('marketing')">
+                <div class="pip-frame relative w-full aspect-video rounded-sm overflow-hidden bg-black">
+                    <video class="hub-video w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" loop muted playsinline>
+                        <source src="https://cdn.pixabay.com/video/2020/02/16/32474-392461014_tiny.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute bottom-4 left-4 bg-black/80 px-3 py-1 border-l-2 border-brand-gold">
+                        <span class="font-serif text-sm tracking-wider text-brand-gold uppercase">02. Market Dominance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PIP Item: Design/Identity -->
+            <div class="snap-center shrink-0 w-[300px] md:w-[450px] flex flex-col gap-4 group" onclick="SystemController.openDetail('design')">
+                <div class="pip-frame relative w-full aspect-video rounded-sm overflow-hidden bg-black">
+                    <video class="hub-video w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" loop muted playsinline>
+                        <source src="https://cdn.pixabay.com/video/2019/04/23/23011-332483100_tiny.mp4" type="video/mp4">
+                    </video>
+                    <div class="absolute bottom-4 left-4 bg-black/80 px-3 py-1 border-l-2 border-brand-gold">
+                        <span class="font-serif text-sm tracking-wider text-brand-gold uppercase">03. Brand Identity</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </main>
 
-    <!-- SERVICES SECTION (Interactive Video Grid) -->
-    <section id="services" class="py-24 relative max-w-7xl mx-auto px-6">
-        <div class="mb-16 md:flex justify-between items-end">
-            <div>
-                <h2 class="font-display text-4xl md:text-5xl font-extrabold mb-4">Disciplines of Mastery</h2>
-                <p class="text-xl text-gray-600 max-w-2xl">Hover to preview our core operational pipelines. Real results require dynamic execution.</p>
-            </div>
-        </div>
+    <!-- ==========================================
+         LAYER 3: DETAIL VIEW (Sticky Split Screen)
+         ========================================== -->
+    <section id="detail-interface" class="state-layer hidden-state w-full min-h-screen bg-brand-dark">
+        <!-- Close button to return to Hub -->
+        <button onclick="SystemController.returnToHub()" class="fixed top-6 right-8 z-50 flex items-center gap-2 text-brand-gold hover:text-white transition-colors group bg-black/50 px-4 py-2 rounded-full border border-brand-gold/30 backdrop-blur-md">
+            <span class="font-sans text-xs uppercase tracking-widest">Return</span>
+            <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="flex flex-col lg:flex-row w-full relative">
             
-            <!-- Service 1: Video Editing -->
-            <div class="video-card group cursor-pointer h-[400px] relative rounded-[2rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2">
-                <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover" onmouseover="this.play()" onmouseout="this.pause();">
-                    <source src="https://cdn.pixabay.com/video/2021/08/11/84687-586749914_tiny.mp4" type="video/mp4">
-                </video>
-                <!-- Overlay that fades on hover -->
-                <div class="overlay absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
-                <div class="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
-                    <div class="w-10 h-10 bg-harvest-500 rounded-full flex items-center justify-center mb-4 text-white shadow-lg group-hover:scale-110 transition">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-white mb-2">Cinematic Editing</h3>
-                    <p class="text-gray-300 text-sm opacity-100 group-hover:opacity-0 transition-opacity">High-retention visual storytelling.</p>
-                </div>
+            <!-- LEFT HALF: Pinned/Frozen Video Panel -->
+            <div class="w-full lg:w-1/2 lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-brand-gold/20 relative bg-brand-dark">
+                <!-- Video Source dynamically injected here -->
+                <video id="detail-video" class="w-full h-[50vh] lg:h-full object-cover opacity-80 mix-blend-luminosity transition-opacity duration-1000" loop muted playsinline></video>
+                
+                <!-- Heavy Overlay Gradient derived from Logo style -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
+                <div class="absolute inset-0 bg-brand-emerald mix-blend-overlay opacity-30"></div>
             </div>
 
-            <!-- Service 2: Photo/Brand Editing -->
-            <div class="video-card group cursor-pointer h-[400px] relative rounded-[2rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2">
-                <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover" onmouseover="this.play()" onmouseout="this.pause();">
-                    <source src="https://cdn.pixabay.com/video/2019/04/23/23011-332483100_tiny.mp4" type="video/mp4">
-                </video>
-                <div class="overlay absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
-                <div class="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
-                    <div class="w-10 h-10 bg-harvest-400 rounded-full flex items-center justify-center mb-4 text-white shadow-lg group-hover:scale-110 transition">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-white mb-2">Brand Aesthetics</h3>
-                    <p class="text-gray-300 text-sm opacity-100 group-hover:opacity-0 transition-opacity">Premium retouching & identity design.</p>
-                </div>
-            </div>
-
-            <!-- Service 3: AI Generation -->
-            <div class="video-card group cursor-pointer h-[400px] relative rounded-[2rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2">
-                <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover" onmouseover="this.play()" onmouseout="this.pause();">
-                    <source src="https://cdn.pixabay.com/video/2023/10/22/186064-877017646_tiny.mp4" type="video/mp4">
-                </video>
-                <div class="overlay absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
-                <div class="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
-                    <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center mb-4 text-white shadow-lg group-hover:scale-110 transition">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-white mb-2">AI Synthesis</h3>
-                    <p class="text-gray-300 text-sm opacity-100 group-hover:opacity-0 transition-opacity">Custom models for rapid content scaling.</p>
-                </div>
-            </div>
-
-            <!-- Service 4: Total Digital Marketing -->
-            <div class="video-card group cursor-pointer h-[400px] relative rounded-[2rem] overflow-hidden shadow-lg transition-transform hover:-translate-y-2">
-                <video loop muted playsinline class="absolute inset-0 w-full h-full object-cover" onmouseover="this.play()" onmouseout="this.pause();">
-                    <source src="https://cdn.pixabay.com/video/2020/02/16/32474-392461014_tiny.mp4" type="video/mp4">
-                </video>
-                <div class="overlay absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent"></div>
-                <div class="absolute inset-0 p-6 flex flex-col justify-end pointer-events-none">
-                    <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mb-4 text-white shadow-lg group-hover:scale-110 transition">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                    </div>
-                    <h3 class="font-display text-2xl font-bold text-white mb-2">Digital Marketing</h3>
-                    <p class="text-gray-300 text-sm opacity-100 group-hover:opacity-0 transition-opacity">SEO, Social, and Performance Ads.</p>
+            <!-- RIGHT HALF: Scrollable Content Payload -->
+            <div class="w-full lg:w-1/2 px-8 lg:px-20 py-20 min-h-[150vh]">
+                <div id="detail-content" class="max-w-2xl">
+                    <!-- Text Content dynamically injected here via JS -->
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- FOOTER / TRUST SECTION -->
-    <footer class="bg-white/40 border-t border-gray-200 mt-12 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <div class="font-display text-2xl font-extrabold tracking-tight text-charcoal mb-2">
-                    Data<span class="text-harvest-500">Drive.</span>
-                </div>
-                <p class="text-sm text-gray-500 max-w-xs">Operating from Pimpri-Chinchwad, Maharashtra. Delivering global results.</p>
-            </div>
-            <div class="text-right">
-                <p class="text-xs font-mono text-gray-400 mb-2 uppercase tracking-widest">Engineered with pure code. Zero page-builders.</p>
-                <a href="mailto:hello@youragency.in" class="text-lg font-medium text-charcoal hover:text-harvest-500 transition">
-                    Initiate Contact &rarr;
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- INTERACTIVE 3D SCRIPT -->
+    <!-- ==========================================
+         SYSTEM CONTROLLER (Architecture Logic)
+         ========================================== -->
     <script>
-        // Smooth 3D Parallax logic for Hero Card
-        const card = document.getElementById('hero-3d-card');
-        const container = document.querySelector('.tilt-container');
+        const SystemController = {
+            // Data Payload for Detail Views
+            dataBank: {
+                'video': {
+                    src: 'https://cdn.pixabay.com/video/2020/05/24/40092-424785461_tiny.mp4',
+                    title: 'Cinematography & Editing',
+                    tagline: 'Visuals that command attention and decode complex narratives.',
+                    body: `
+                        <p class="mb-6 leading-relaxed">In an era of infinite scroll, motion is the only anchor. We don't just edit videos; we architect psychological triggers using pacing, color grading, and auditory hooks.</p>
+                        <h3 class="font-serif text-2xl gold-text mt-12 mb-4">The Process</h3>
+                        <ul class="space-y-6 border-l border-brand-gold/20 pl-6 text-sm text-brand-light/80">
+                            <li><strong class="text-brand-gold block text-base font-sans">01. Narrative Extraction</strong> We analyze your core offer and script visual sequences designed specifically for high-retention on modern platforms.</li>
+                            <li><strong class="text-brand-gold block text-base font-sans">02. Edge Delivery Processing</strong> Every frame is color-graded and rendered to optimize mobile and desktop playback without compression artifacts.</li>
+                            <li><strong class="text-brand-gold block text-base font-sans">03. Deployment</strong> Integration into the final campaign matrix.</li>
+                        </ul>
+                    `
+                },
+                'marketing': {
+                    src: 'https://cdn.pixabay.com/video/2020/02/16/32474-392461014_tiny.mp4',
+                    title: 'Market Dominance',
+                    tagline: 'Systematic omnipresence across digital ecosystems.',
+                    body: `
+                        <p class="mb-6 leading-relaxed">Hope is not a marketing strategy. We deploy data-driven, algorithm-compliant campaigns that target precise demographics with ruthless efficiency.</p>
+                        <h3 class="font-serif text-2xl gold-text mt-12 mb-4">Our Arsenal</h3>
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="bg-black/40 border border-brand-gold/10 p-6">
+                                <h4 class="font-serif text-brand-gold mb-2">Search Engine Authority (SEO)</h4>
+                                <p class="text-sm text-brand-light/70">Beyond keywords. We restructure your DOM and data nodes to speak directly to Googlebot and generative AI engines.</p>
+                            </div>
+                            <div class="bg-black/40 border border-brand-gold/10 p-6">
+                                <h4 class="font-serif text-brand-gold mb-2">Paid Acquisition (PPC)</h4>
+                                <p class="text-sm text-brand-light/70">Mathematical ad-buying. If a dollar goes in, we track its precise trajectory until it returns with profit.</p>
+                            </div>
+                        </div>
+                    `
+                },
+                'design': {
+                    src: 'https://cdn.pixabay.com/video/2019/04/23/23011-332483100_tiny.mp4',
+                    title: 'Brand Identity',
+                    tagline: 'Visuals as an asset class. Designing for premium positioning.',
+                    body: `
+                        <p class="mb-6 leading-relaxed">Your brand's visual identity dictates the price you can charge before you ever speak to the customer. We craft identities rooted in historical authority and modern minimalism.</p>
+                        <p class="mb-6 leading-relaxed">Every color hex code, every typographic kerning decision is calculated to bypass the logical brain and establish immediate trust and premium status.</p>
+                    `
+                }
+            },
 
-        if(container && card) {
-            container.addEventListener('mousemove', (e) => {
-                const rect = container.getBoundingClientRect();
-                const x = e.clientX - rect.left; // x position within the element
-                const y = e.clientY - rect.top;  // y position within the element
+            // Boot Sequence
+            init: () => {
+                SystemController.optimizeVRAM();
+            },
+
+            // Unlock main interface from Landing Screen
+            unlockInterface: () => {
+                const gate = document.getElementById('intro-gate');
+                const hub = document.getElementById('hub-interface');
                 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
+                gate.classList.add('intro-hidden');
                 
-                // Calculate rotation (max 15 degrees)
-                const rotateX = ((y - centerY) / centerY) * -15;
-                const rotateY = ((x - centerX) / centerX) * 15;
+                setTimeout(() => {
+                    gate.style.display = 'none';
+                    hub.classList.remove('hidden-state');
+                    SystemController.triggerHubVideos(true);
+                }, 1000); // Wait for transition
+            },
 
-                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
+            // Transition from Hub to Detail Split-Screen
+            openDetail: (serviceId) => {
+                const hub = document.getElementById('hub-interface');
+                const detail = document.getElementById('detail-interface');
+                const detailVideo = document.getElementById('detail-video');
+                const detailContent = document.getElementById('detail-content');
+                
+                const payload = SystemController.dataBank[serviceId];
 
-            container.addEventListener('mouseleave', () => {
-                card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-                card.style.transition = `transform 0.5s ease-out`;
-            });
+                // Pause Hub videos to free VRAM
+                SystemController.triggerHubVideos(false);
 
-            container.addEventListener('mouseenter', () => {
-                card.style.transition = `transform 0.1s ease-out`; // remove transition for smooth tracking
-            });
-        }
+                // Inject Data Payload
+                detailVideo.src = payload.src;
+                detailContent.innerHTML = `
+                    <div class="mb-8 border-b border-brand-gold/20 pb-8">
+                        <h2 class="font-serif text-4xl md:text-6xl gold-text mb-4 leading-tight">${payload.title}</h2>
+                        <p class="font-sans text-xl text-brand-gold tracking-wide uppercase text-sm">${payload.tagline}</p>
+                    </div>
+                    <div class="font-sans text-brand-light text-lg">
+                        ${payload.body}
+                    </div>
+                `;
 
-        // Navbar blur effect on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 20) {
-                nav.classList.add('bg-white/30', 'backdrop-blur-lg', 'shadow-sm');
-            } else {
-                nav.classList.remove('bg-white/30', 'backdrop-blur-lg', 'shadow-sm');
+                // Execute Transition
+                hub.classList.add('hidden-state');
+                
+                setTimeout(() => {
+                    detail.classList.remove('hidden-state');
+                    detail.style.position = 'relative'; // Anchor to normal document flow
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                    detailVideo.play();
+                }, 600);
+            },
+
+            // Transition back to Hub
+            returnToHub: () => {
+                const hub = document.getElementById('hub-interface');
+                const detail = document.getElementById('detail-interface');
+                const detailVideo = document.getElementById('detail-video');
+
+                detail.classList.add('hidden-state');
+                detailVideo.pause();
+
+                setTimeout(() => {
+                    detail.style.position = 'absolute';
+                    hub.classList.remove('hidden-state');
+                    SystemController.triggerHubVideos(true);
+                }, 600);
+            },
+
+            // VRAM Security: Intersection Observer to pause off-screen PIP videos
+            optimizeVRAM: () => {
+                const videos = document.querySelectorAll('.hub-video');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const v = entry.target;
+                        if (entry.isIntersecting && !document.getElementById('hub-interface').classList.contains('hidden-state')) {
+                            v.play().catch(()=>{});
+                        } else {
+                            v.pause();
+                        }
+                    });
+                }, { threshold: 0.2 });
+
+                videos.forEach(v => observer.observe(v));
+            },
+
+            // Global trigger for Hub video playback state
+            triggerHubVideos: (playState) => {
+                const videos = document.querySelectorAll('.hub-video');
+                videos.forEach(v => {
+                    if (playState) {
+                        // Only play if it's currently visible in the horizontal scroll
+                        const rect = v.getBoundingClientRect();
+                        if(rect.left >= 0 && rect.right <= window.innerWidth) {
+                            v.play().catch(()=>{});
+                        }
+                    } else {
+                        v.pause();
+                    }
+                });
             }
-        });
+        };
+
+        // Boot
+        document.addEventListener('DOMContentLoaded', SystemController.init);
     </script>
 </body>
 </html>
