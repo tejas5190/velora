@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velora OS — Dynamic Marketing Command Center</title>
+    
+    <meta name="description" content="An elite, interactive digital infrastructure showing real-time production loops, AI pipelines, and raw competitive analysis.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Cinzel', 'serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        harvest: {
+                            50: '#FDFBF7',
+                            400: '#FFB142',
+                            500: '#FF6B35',
+                        },
+                        charcoal: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-window {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+        .window-shadow {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-harvest-50 text-charcoal font-sans antialiased min-h-screen overflow-x-hidden relative pb-12">
+
+    <!-- Sun-Kissed Ambient Lights -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] right-[-10%] w-[700px] h-[700px] bg-harvest-400/20 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[20%] left-[-10%] w-[600px] h-[600px] bg-harvest-500/10 rounded-full blur-[100px]"></div>
+    </div>
+
+    <!-- Header / Top Bar of the OS -->
+    <header class="w-full p-6">
+        <div class="max-w-7xl mx-auto glass-window rounded-2xl px-6 py-3 flex justify-between items-center shadow-sm">
+            <div class="font-serif text-lg font-bold tracking-[0.2em] flex items-center gap-2">
+                <span class="text-harvest-500 font-sans font-black">V</span> VELORA SYSTEM
+            </div>
+            <div class="flex items-center space-x-4 font-mono text-xs text-gray-500">
+                <span class="bg-green-500/20 text-green-700 px-2 py-0.5 rounded">ENV: Production</span>
+                <span id="os-clock">06:11:20 AM</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Welcome Hook Banner -->
+    <section class="max-w-7xl mx-auto px-6 pt-6 text-center lg:text-left">
+        <div class="max-w-2xl">
+            <h1 class="font-serif text-4xl lg:text-5xl font-bold leading-tight">
+                Welcome to the <span class="text-transparent bg-clip-text bg-gradient-to-r from-harvest-500 to-harvest-400 font-sans font-extrabold">Engine Room</span>
+            </h1>
+            <p class="text-gray-600 mt-2 text-sm font-medium">
+                No mockups. No presentation slides. Click, observe, and inspect raw digital assets running live on our clusters.
+            </p>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE WINDOWS GRID -->
+    <main class="max-w-7xl mx-auto px-6 mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- WINDOW 1: Video Editing Timeline (Left Side - 7 Cols) -->
+        <div class="lg:col-span-7 glass-window rounded-2xl overflow-hidden window-shadow border border-white/70 transition-all hover:scale-[1.01]">
+            <!-- Window Title Bar -->
+            <div class="bg-white/60 px-4 py-3 flex justify-between items-center border-b border-white/40">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                    <span class="text-xs font-mono font-bold text-gray-600 pl-2">timeline_render_pipeline.mp4</span>
+                </div>
+                <span class="text-[10px] font-mono bg-harvest-500/10 text-harvest-500 px-2 py-0.5 rounded font-bold">RAW RENDER</span>
+            </div>
+            <!-- Video Container -->
+            <div class="relative bg-black aspect-video group">
+                <!-- Replace 'src' with your real video clip asset -->
+                <video class="w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity" autoplay loop muted playsinline>
+                    <source src="video-editing-loop.mp4" type="video/mp4">
+                </video>
+                <!-- Interactive Overlay for Dev Vibe -->
+                <div class="absolute bottom-4 left-4 font-mono text-xs text-white/80 bg-black/40 backdrop-blur-md p-3 rounded-lg">
+                    <p class="text-harvest-400 font-bold">◇ Post-Production Suite</p>
+                    <p class="text-[10px] text-gray-300 mt-1">Frames: 60fps • 4K ProRes Seamless Integration</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WINDOW 2: AI Generation Highlights (Right Side - 5 Cols) -->
+        <div class="lg:col-span-5 glass-window rounded-2xl overflow-hidden window-shadow border border-white/70 transition-all hover:scale-[1.01]">
+            <div class="bg-white/60 px-4 py-3 flex items-center space-x-2 border-b border-white/40">
+                <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                <span class="text-xs font-mono font-bold text-gray-600 pl-2">neural_diffusion_process.webm</span>
+            </div>
+            <div class="relative bg-gray-900 aspect-square lg:aspect-auto lg:h-[352px]">
+                <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                    <source src="ai-generation-process.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent p-6 flex flex-col justify-end text-white">
+                    <span class="font-mono text-[10px] text-orange-400 tracking-widest uppercase font-bold">Generative Engine</span>
+                    <h3 class="font-serif text-lg font-bold mt-1">AI Midjourney & Custom LoRA Highlight</h3>
+                    <p class="text-xs text-gray-300 mt-2 leading-relaxed">Iterative processing showing architectural multi-prompt sequencing models rendering live variations.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WINDOW 3: Competition Analyzer Terminal (Bottom Left - 6 Cols) -->
+        <div class="lg:col-span-6 glass-window rounded-2xl overflow-hidden window-shadow border border-white/70 bg-charcoal/95 text-gray-200">
+            <div class="bg-gray-800/80 px-4 py-3 flex justify-between items-center border-b border-gray-700/50">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="text-xs font-mono text-gray-400 pl-2">audit_engine_v2.sh</span>
+                </div>
+                <span class="text-[10px] font-mono text-red-400 font-bold bg-red-500/10 px-2 py-0.5 rounded">CRITICAL CONFLICTS</span>
+            </div>
+            <!-- Terminal Output Context from Screenshots -->
+            <div class="p-6 font-mono text-xs space-y-3 h-64 overflow-y-auto">
+                <p class="text-gray-500">// Running competitive brand mapping algorithms...</p>
+                <p class="text-amber-400">> Scanning target search clutter indexes...</p>
+                <p class="text-red-400">[WARN] Multiple overlapping brand nodes detected on key terms</p>
+                
+                <div class="bg-black/40 border border-gray-800 rounded-lg p-3 my-2 space-y-1 text-gray-400">
+                    <p class="text-white font-bold">Node Clutter Found (Ref: Screenshot 2026-06-11 060054_2.png):</p>
+                    <p class="text-red-300">- veloramarketing.com [Stagnant Title Metadata]</p>
+                    <p class="text-red-300">- veloradigitalltd.com [Overlapping Geo-Authority]</p>
+                    <p class="text-red-300">- velorafirm.com [Collision Risk Rank]</p>
+                </div>
+
+                <div class="bg-black/40 border border-gray-800 rounded-lg p-3 my-2 space-y-1 text-gray-400">
+                    <p class="text-white font-bold">Social Disconnect (Ref: Screenshot 2026-06-11 060120_2.png):</p>
+                    <p class="text-yellow-200">- Mismatched SEO Titles found on site builders ("Emergent App")</p>
+                    <p class="text-yellow-200">- Zero active local schema configurations mapped.</p>
+                </div>
+
+                <p class="text-green-400 font-bold">> SOLUTION DEPLOYED: High-performance edge infrastructure initialization complete.</p>
+                <p class="text-white animate-pulse">> █</p>
+            </div>
+        </div>
+
+        <!-- WINDOW 4: 3D Website Rendering Pipeline (Bottom Right - 6 Cols) -->
+        <div class="lg:col-span-6 glass-window rounded-2xl overflow-hidden window-shadow border border-white/70 transition-all hover:scale-[1.01]">
+            <div class="bg-white/60 px-4 py-3 flex items-center space-x-2 border-b border-white/40">
+                <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                <span class="w-3 h-3 rounded-full bg-gray-300"></span>
+                <span class="text-xs font-mono font-bold text-gray-600 pl-2">threejs_webgl_engine.log</span>
+            </div>
+            <div class="relative bg-gray-900 aspect-video lg:h-[312px]">
+                <video class="w-full h-full object-cover opacity-90" autoplay loop muted playsinline>
+                    <source src="3d-website-interaction.mp4" type="video/mp4">
+                </video>
+                <div class="absolute top-4 right-4 bg-charcoal text-white font-mono text-[10px] px-2 py-1 rounded">
+                    WebGL Active
+                </div>
+                <div class="absolute bottom-4 left-4 right-4 bg-white/20 backdrop-blur-md p-4 rounded-xl border border-white/30 text-white">
+                    <h4 class="font-display font-bold text-sm">3D Immersive Web Frameworks</h4>
+                    <p class="text-xs text-gray-200 mt-1">Deploying Three.js vectors mapped with hardware-accelerated shaders for interactive 3D product tracking environments.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Simple clock script for OS feel -->
+    <script>
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('os-clock').innerText = now.toLocaleTimeString();
+        }
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
