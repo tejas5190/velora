@@ -1,6 +1,5 @@
-/* Core Overrides */
 html {
-    background-color: #0a0806; /* brand-dark */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -8,32 +7,33 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Austria Info specific Overlapping Trick */
-/* The Hero is sticky, but the main content has a higher z-index and solid background to slide OVER it */
-main#editorial {
+/* The Austria-Style Overlap Trick */
+/* The main expertise section uses -mt-32 to slide over the sticky video */
+main#expertise {
     position: relative;
     z-index: 20;
-    /* This shadow creates the illusion of the content block casting a shadow on the video underneath */
-    box-shadow: 0 -30px 60px rgba(10, 8, 6, 0.9); 
 }
 
-/* Typography Enhancements */
-.gold-text {
-    background: linear-gradient(to bottom right, #F9F1CC, #D4AF37, #8B6508);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Scrollbar Engineering */
+/* Custom Clean Scrollbar */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: #0a0806; }
+::-webkit-scrollbar-track { background: #F8F9FA; }
 ::-webkit-scrollbar-thumb { 
-    background: #8B6508; 
+    background: #D1D5DB; 
     border-radius: 4px; 
 }
-::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+::-webkit-scrollbar-thumb:hover { background: #FF4500; }
 
-/* Cinematic Smooth Image Loading */
-img, video {
-    background-color: #0a0806;
+/* Subtle Animation for Award Badge */
+@keyframes pulse-slow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+.animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* Text Selection */
+::selection {
+    background-color: #FF4500;
+    color: white;
 }
