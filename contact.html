@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Velora Marketing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Playfair Display', 'serif'] },
+                    colors: { brand: { white: '#FFFFFF', pearl: '#F8F9FA', slate: '#1A1A1A', accent: '#FF4500' } }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-brand-white text-brand-slate antialiased min-h-screen flex flex-col">
+
+    <!-- NAVIGATION -->
+    <nav class="w-full bg-white border-b border-gray-100 py-4 px-8 flex justify-between items-center z-50">
+        <a href="index.html" class="font-serif text-2xl font-bold tracking-tight text-brand-slate">VELORA<span class="text-brand-accent">.</span></a>
+        <div class="hidden md:flex gap-8 font-sans text-sm font-medium text-gray-600">
+            <a href="index.html" class="hover:text-brand-accent transition-colors">Home</a>
+            <a href="services.html" class="hover:text-brand-accent transition-colors">Services</a>
+            <a href="about.html" class="hover:text-brand-accent transition-colors">About Us</a>
+        </div>
+    </nav>
+
+    <!-- CONTACT SPLIT SCREEN -->
+    <main class="flex-1 flex flex-col lg:flex-row w-full">
+        
+        <!-- Left: Info & Map Context -->
+        <div class="w-full lg:w-5/12 bg-brand-pearl p-12 lg:p-20 flex flex-col justify-between border-r border-gray-200">
+            <div>
+                <h1 class="font-serif text-5xl font-bold mb-6">Let's Talk <br> <span class="italic text-brand-accent">Growth.</span></h1>
+                <p class="text-gray-500 mb-12">Whether you need a complete digital overhaul or a targeted performance campaign, our team is ready to engineer your success.</p>
+                
+                <div class="space-y-8">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-white p-3 rounded-full shadow-sm"><i data-lucide="map-pin" class="text-brand-accent w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-brand-slate">Headquarters</h4>
+                            <p class="text-gray-500 text-sm mt-1">Baner, Pune,<br>Maharashtra, India</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-white p-3 rounded-full shadow-sm"><i data-lucide="mail" class="text-brand-accent w-5 h-5"></i></div>
+                        <div>
+                            <h4 class="font-bold text-brand-slate">Direct Line</h4>
+                            <a href="mailto:hello@veloramarketing.com" class="text-gray-500 text-sm mt-1 hover:text-brand-accent transition-colors">hello@veloramarketing.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 border-t border-gray-200 pt-8">
+                <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">Connect with Founder</p>
+                <a href="https://www.linkedin.com/in/ashwini-ratnaparkhi/" target="_blank" class="text-blue-600 font-medium hover:underline text-sm flex items-center gap-2">
+                    <i data-lucide="linkedin" class="w-4 h-4"></i> Ashwini Ratnaparkhi
+                </a>
+            </div>
+        </div>
+
+        <!-- Right: The Form -->
+        <div class="w-full lg:w-7/12 p-12 lg:p-20 bg-white flex items-center justify-center">
+            <div class="w-full max-w-xl">
+                <h3 class="font-serif text-3xl font-bold mb-8">Send a Dispatch</h3>
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">First Name</label>
+                            <input type="text" class="w-full bg-brand-pearl border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent focus:bg-white transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">Last Name</label>
+                            <input type="text" class="w-full bg-brand-pearl border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent focus:bg-white transition-all">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">Work Email</label>
+                        <input type="email" class="w-full bg-brand-pearl border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent focus:bg-white transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wide mb-2">Project Details</label>
+                        <textarea rows="4" class="w-full bg-brand-pearl border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-accent focus:bg-white transition-all resize-none"></textarea>
+                    </div>
+                    <button type="button" class="bg-brand-slate hover:bg-black text-white w-full py-4 rounded-lg font-bold tracking-wide transition-all shadow-lg hover:shadow-xl mt-4">
+                        Initialize Protocol
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
