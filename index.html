@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Velora | Stories That Move Markets</title>
     
-    <!-- Deep Regal Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -19,10 +18,10 @@
                     },
                     colors: {
                         brand: {
-                            dark: '#0c0a09',     // Deepest stone/bronze
-                            gold: '#D4AF37',     // Antique Gold
-                            emerald: '#0A2117',  // Deep forest/emerald from the 'V' wing
-                            light: '#E6D5B8'     // Parchment text
+                            dark: '#0a0806',     // Pitch dark bronze
+                            gold: '#D4AF37',     // Premium Gold
+                            accent: '#8B6508',   // Deep Gold
+                            light: '#FDFBF7'     // Off-white parchment
                         }
                     }
                 }
@@ -30,309 +29,120 @@
         }
     </script>
 
-    <style>
-        body { background-color: #0c0a09; color: #E6D5B8; overflow-x: hidden; }
-        
-        /* Utility: Hide Scrollbar for Carousel */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        /* Custom Scrollbar for the Detail View */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0c0a09; }
-        ::-webkit-scrollbar-thumb { background: #D4AF37; }
-
-        /* Cinematic Intro Transitions */
-        #intro-gate { transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s ease; }
-        .intro-hidden { opacity: 0; pointer-events: none; transform: scale(1.05); }
-        
-        /* Interface State Transitions */
-        .state-layer { transition: opacity 0.6s ease; }
-        .hidden-state { opacity: 0; pointer-events: none; position: absolute; top: 0; left: 0; w: 100%; }
-        
-        /* PIP Video Framing */
-        .pip-frame {
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
-            transition: transform 0.4s ease, border-color 0.4s ease;
-        }
-        .pip-frame:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: rgba(212, 175, 55, 0.8);
-            box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.2);
-            cursor: pointer;
-        }
-
-        /* Gold Gradient Text */
-        .gold-text {
-            background: linear-gradient(to bottom right, #F9F1CC, #D4AF37, #8B6508);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="antialiased selection:bg-brand-gold selection:text-brand-dark relative min-h-screen">
+<body class="bg-brand-dark text-brand-light antialiased overflow-x-hidden selection:bg-brand-gold selection:text-brand-dark">
 
-    <!-- ==========================================
-         LAYER 1: INTRO GATE (Landing Screen)
-         ========================================== -->
-    <div id="intro-gate" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-brand-dark">
-        <div class="text-center">
-            <!-- Utilizing the logo aesthetic and exact tagline -->
-            <h1 class="font-serif text-6xl md:text-8xl font-black tracking-widest gold-text mb-4 drop-shadow-2xl">
-                VELORA
-            </h1>
-            <p class="font-sans text-sm md:text-base tracking-[0.3em] text-brand-gold uppercase opacity-80 mb-12">
-                Stories That Move Markets
-            </p>
-            <button onclick="SystemController.unlockInterface()" class="px-8 py-3 border border-brand-gold/50 text-brand-gold font-serif tracking-widest hover:bg-brand-gold hover:text-brand-dark transition-all duration-500">
-                ENTER
-            </button>
+    <nav class="fixed w-full top-0 z-50 transition-all duration-500 bg-gradient-to-b from-brand-dark/90 to-transparent pt-6 pb-10 px-8 lg:px-16 flex justify-between items-center">
+        <div class="font-serif text-3xl font-black tracking-widest text-brand-gold drop-shadow-lg">
+            VELORA<span class="text-white">.</span>
         </div>
-        <!-- Ambient Background Texture overlay -->
-        <div class="absolute inset-0 z-[-1] opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-overlay"></div>
-    </div>
-
-    <!-- ==========================================
-         LAYER 2: HUB (PIP Video Carousel)
-         ========================================== -->
-    <main id="hub-interface" class="state-layer hidden-state min-h-screen flex flex-col justify-center pt-20 pb-10">
-        <div class="px-8 md:px-16 mb-8">
-            <h2 class="font-serif text-3xl md:text-5xl gold-text mb-2">Our Disciplines</h2>
-            <p class="font-sans text-brand-light/60 max-w-xl">Select a domain to witness our execution architecture.</p>
+        <div class="hidden md:flex gap-8 font-sans text-sm tracking-widest uppercase text-white/80">
+            <a href="#editorial" class="hover:text-brand-gold transition-colors">Disciplines</a>
+            <a href="#contact" class="hover:text-brand-gold transition-colors">Command Center</a>
         </div>
+        <button class="flex items-center gap-2 text-brand-dark bg-brand-gold hover:bg-white px-6 py-2.5 font-sans font-semibold tracking-wide transition-all rounded-sm">
+            <span>INITIATE</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+    </nav>
 
-        <!-- Horizontal Scroll Track -->
-        <div class="flex overflow-x-auto gap-8 px-8 md:px-16 pb-12 pt-4 no-scrollbar items-center snap-x snap-mandatory">
+    <header class="relative w-full h-[120vh]">
+        <div class="sticky top-0 w-full h-screen overflow-hidden">
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60">
+                <source src="https://cdn.pixabay.com/video/2022/04/24/115003-703348882_large.mp4" type="video/mp4">
+            </video>
             
-            <!-- PIP Item: Video Editing -->
-            <div class="snap-center shrink-0 w-[300px] md:w-[450px] flex flex-col gap-4 group" onclick="SystemController.openDetail('video')">
-                <div class="pip-frame relative w-full aspect-video rounded-sm overflow-hidden bg-black">
-                    <video class="hub-video w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" loop muted playsinline>
-                        <source src="https://cdn.pixabay.com/video/2020/05/24/40092-424785461_tiny.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute bottom-4 left-4 bg-black/80 px-3 py-1 border-l-2 border-brand-gold">
-                        <span class="font-serif text-sm tracking-wider text-brand-gold uppercase">01. Cinematography</span>
-                    </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-brand-dark/20 mix-blend-multiply"></div>
+            
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4 mt-20">
+                <i data-lucide="crown" class="w-12 h-12 text-brand-gold mb-6 opacity-80"></i>
+                <h1 class="font-serif text-5xl md:text-8xl lg:text-[9rem] font-black tracking-widest uppercase text-white leading-none mb-6 drop-shadow-2xl">
+                    Imperial <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-[#F9F1CC]">Growth</span>
+                </h1>
+                <p class="font-sans text-sm md:text-lg tracking-[0.4em] uppercase text-brand-gold/90 max-w-2xl">
+                    Architecting Digital Authority across the global market.
+                </p>
+                
+                <div class="absolute bottom-12 flex flex-col items-center animate-bounce opacity-70">
+                    <span class="text-xs tracking-[0.2em] uppercase mb-2">Descend</span>
+                    <i data-lucide="chevron-down" class="text-brand-gold w-6 h-6"></i>
                 </div>
             </div>
+        </div>
+    </header>
 
-            <!-- PIP Item: Digital Authority (Social/Marketing) -->
-            <div class="snap-center shrink-0 w-[300px] md:w-[450px] flex flex-col gap-4 group" onclick="SystemController.openDetail('marketing')">
-                <div class="pip-frame relative w-full aspect-video rounded-sm overflow-hidden bg-black">
-                    <video class="hub-video w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" loop muted playsinline>
-                        <source src="https://cdn.pixabay.com/video/2020/02/16/32474-392461014_tiny.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute bottom-4 left-4 bg-black/80 px-3 py-1 border-l-2 border-brand-gold">
-                        <span class="font-serif text-sm tracking-wider text-brand-gold uppercase">02. Market Dominance</span>
-                    </div>
-                </div>
+    <main id="editorial" class="relative z-20 bg-brand-dark w-full pb-32 pt-20 shadow-[0_-20px_50px_rgba(10,8,6,1)]">
+        
+        <div class="px-8 lg:px-20 max-w-[1600px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-brand-gold/20 pb-8">
+                <h2 class="font-serif text-4xl md:text-6xl text-brand-light">The <span class="text-brand-gold italic">Arsenal</span></h2>
+                <p class="font-sans text-brand-light/60 max-w-sm text-sm tracking-wide mt-4 md:mt-0 leading-relaxed">
+                    We do not play games with templates. We build bespoke digital infrastructures that crush local competition.
+                </p>
             </div>
 
-            <!-- PIP Item: Design/Identity -->
-            <div class="snap-center shrink-0 w-[300px] md:w-[450px] flex flex-col gap-4 group" onclick="SystemController.openDetail('design')">
-                <div class="pip-frame relative w-full aspect-video rounded-sm overflow-hidden bg-black">
-                    <video class="hub-video w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" loop muted playsinline>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+                
+                <article class="md:col-span-8 group cursor-pointer relative overflow-hidden rounded-sm bg-black aspect-[16/9]">
+                    <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?q=80&w=2071&auto=format&fit=crop" alt="Cinematography Asset" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 md:p-12 w-full flex justify-between items-end">
+                        <div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <i data-lucide="video" class="text-brand-gold w-5 h-5"></i>
+                                <span class="font-sans text-xs tracking-[0.2em] text-brand-gold uppercase">01. Service</span>
+                            </div>
+                            <h3 class="font-serif text-3xl md:text-5xl text-white">Cinematic Architecture</h3>
+                        </div>
+                        <div class="w-12 h-12 rounded-full border border-brand-gold flex items-center justify-center bg-brand-dark/50 group-hover:bg-brand-gold text-brand-gold group-hover:text-brand-dark transition-colors backdrop-blur-md">
+                            <i data-lucide="play" class="w-5 h-5 ml-1"></i>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="md:col-span-4 group cursor-pointer relative overflow-hidden rounded-sm bg-black md:-mt-24 h-[500px] md:h-auto">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1974&auto=format&fit=crop" alt="Tech Asset" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-in-out grayscale group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent"></div>
+                    
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i data-lucide="cpu" class="text-brand-gold w-5 h-5"></i>
+                            <span class="font-sans text-xs tracking-[0.2em] text-brand-gold uppercase">02. Infrastructure</span>
+                        </div>
+                        <h3 class="font-serif text-3xl text-white mb-2">Algorithmic Dominance</h3>
+                        <p class="font-sans text-sm text-brand-light/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0">
+                            SEO and code architectures engineered directly for modern AI crawlers.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="md:col-span-12 group cursor-pointer relative overflow-hidden rounded-sm bg-black aspect-[21/9] mt-4 md:mt-0">
+                    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700">
                         <source src="https://cdn.pixabay.com/video/2019/04/23/23011-332483100_tiny.mp4" type="video/mp4">
                     </video>
-                    <div class="absolute bottom-4 left-4 bg-black/80 px-3 py-1 border-l-2 border-brand-gold">
-                        <span class="font-serif text-sm tracking-wider text-brand-gold uppercase">03. Brand Identity</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/60 to-transparent"></div>
+                    
+                    <div class="absolute top-0 left-0 h-full p-8 md:p-16 flex flex-col justify-center max-w-3xl">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i data-lucide="pen-tool" class="text-brand-gold w-5 h-5"></i>
+                            <span class="font-sans text-xs tracking-[0.2em] text-brand-gold uppercase">03. Aesthetics</span>
+                        </div>
+                        <h3 class="font-serif text-4xl md:text-6xl text-white mb-6 leading-tight">Visuals that dictate <br> premium pricing.</h3>
+                        <button class="w-fit flex items-center gap-2 border-b border-brand-gold pb-1 text-brand-gold hover:text-white hover:border-white transition-colors group-hover:pl-4 duration-300">
+                            <span class="font-sans text-sm tracking-widest uppercase">Explore Case Studies</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
                     </div>
-                </div>
-            </div>
+                </article>
 
+            </div>
         </div>
     </main>
 
-    <!-- ==========================================
-         LAYER 3: DETAIL VIEW (Sticky Split Screen)
-         ========================================== -->
-    <section id="detail-interface" class="state-layer hidden-state w-full min-h-screen bg-brand-dark">
-        <!-- Close button to return to Hub -->
-        <button onclick="SystemController.returnToHub()" class="fixed top-6 right-8 z-50 flex items-center gap-2 text-brand-gold hover:text-white transition-colors group bg-black/50 px-4 py-2 rounded-full border border-brand-gold/30 backdrop-blur-md">
-            <span class="font-sans text-xs uppercase tracking-widest">Return</span>
-            <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-        </button>
-
-        <div class="flex flex-col lg:flex-row w-full relative">
-            
-            <!-- LEFT HALF: Pinned/Frozen Video Panel -->
-            <div class="w-full lg:w-1/2 lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-brand-gold/20 relative bg-brand-dark">
-                <!-- Video Source dynamically injected here -->
-                <video id="detail-video" class="w-full h-[50vh] lg:h-full object-cover opacity-80 mix-blend-luminosity transition-opacity duration-1000" loop muted playsinline></video>
-                
-                <!-- Heavy Overlay Gradient derived from Logo style -->
-                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent"></div>
-                <div class="absolute inset-0 bg-brand-emerald mix-blend-overlay opacity-30"></div>
-            </div>
-
-            <!-- RIGHT HALF: Scrollable Content Payload -->
-            <div class="w-full lg:w-1/2 px-8 lg:px-20 py-20 min-h-[150vh]">
-                <div id="detail-content" class="max-w-2xl">
-                    <!-- Text Content dynamically injected here via JS -->
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ==========================================
-         SYSTEM CONTROLLER (Architecture Logic)
-         ========================================== -->
-    <script>
-        const SystemController = {
-            // Data Payload for Detail Views
-            dataBank: {
-                'video': {
-                    src: 'https://cdn.pixabay.com/video/2020/05/24/40092-424785461_tiny.mp4',
-                    title: 'Cinematography & Editing',
-                    tagline: 'Visuals that command attention and decode complex narratives.',
-                    body: `
-                        <p class="mb-6 leading-relaxed">In an era of infinite scroll, motion is the only anchor. We don't just edit videos; we architect psychological triggers using pacing, color grading, and auditory hooks.</p>
-                        <h3 class="font-serif text-2xl gold-text mt-12 mb-4">The Process</h3>
-                        <ul class="space-y-6 border-l border-brand-gold/20 pl-6 text-sm text-brand-light/80">
-                            <li><strong class="text-brand-gold block text-base font-sans">01. Narrative Extraction</strong> We analyze your core offer and script visual sequences designed specifically for high-retention on modern platforms.</li>
-                            <li><strong class="text-brand-gold block text-base font-sans">02. Edge Delivery Processing</strong> Every frame is color-graded and rendered to optimize mobile and desktop playback without compression artifacts.</li>
-                            <li><strong class="text-brand-gold block text-base font-sans">03. Deployment</strong> Integration into the final campaign matrix.</li>
-                        </ul>
-                    `
-                },
-                'marketing': {
-                    src: 'https://cdn.pixabay.com/video/2020/02/16/32474-392461014_tiny.mp4',
-                    title: 'Market Dominance',
-                    tagline: 'Systematic omnipresence across digital ecosystems.',
-                    body: `
-                        <p class="mb-6 leading-relaxed">Hope is not a marketing strategy. We deploy data-driven, algorithm-compliant campaigns that target precise demographics with ruthless efficiency.</p>
-                        <h3 class="font-serif text-2xl gold-text mt-12 mb-4">Our Arsenal</h3>
-                        <div class="grid grid-cols-1 gap-6">
-                            <div class="bg-black/40 border border-brand-gold/10 p-6">
-                                <h4 class="font-serif text-brand-gold mb-2">Search Engine Authority (SEO)</h4>
-                                <p class="text-sm text-brand-light/70">Beyond keywords. We restructure your DOM and data nodes to speak directly to Googlebot and generative AI engines.</p>
-                            </div>
-                            <div class="bg-black/40 border border-brand-gold/10 p-6">
-                                <h4 class="font-serif text-brand-gold mb-2">Paid Acquisition (PPC)</h4>
-                                <p class="text-sm text-brand-light/70">Mathematical ad-buying. If a dollar goes in, we track its precise trajectory until it returns with profit.</p>
-                            </div>
-                        </div>
-                    `
-                },
-                'design': {
-                    src: 'https://cdn.pixabay.com/video/2019/04/23/23011-332483100_tiny.mp4',
-                    title: 'Brand Identity',
-                    tagline: 'Visuals as an asset class. Designing for premium positioning.',
-                    body: `
-                        <p class="mb-6 leading-relaxed">Your brand's visual identity dictates the price you can charge before you ever speak to the customer. We craft identities rooted in historical authority and modern minimalism.</p>
-                        <p class="mb-6 leading-relaxed">Every color hex code, every typographic kerning decision is calculated to bypass the logical brain and establish immediate trust and premium status.</p>
-                    `
-                }
-            },
-
-            // Boot Sequence
-            init: () => {
-                SystemController.optimizeVRAM();
-            },
-
-            // Unlock main interface from Landing Screen
-            unlockInterface: () => {
-                const gate = document.getElementById('intro-gate');
-                const hub = document.getElementById('hub-interface');
-                
-                gate.classList.add('intro-hidden');
-                
-                setTimeout(() => {
-                    gate.style.display = 'none';
-                    hub.classList.remove('hidden-state');
-                    SystemController.triggerHubVideos(true);
-                }, 1000); // Wait for transition
-            },
-
-            // Transition from Hub to Detail Split-Screen
-            openDetail: (serviceId) => {
-                const hub = document.getElementById('hub-interface');
-                const detail = document.getElementById('detail-interface');
-                const detailVideo = document.getElementById('detail-video');
-                const detailContent = document.getElementById('detail-content');
-                
-                const payload = SystemController.dataBank[serviceId];
-
-                // Pause Hub videos to free VRAM
-                SystemController.triggerHubVideos(false);
-
-                // Inject Data Payload
-                detailVideo.src = payload.src;
-                detailContent.innerHTML = `
-                    <div class="mb-8 border-b border-brand-gold/20 pb-8">
-                        <h2 class="font-serif text-4xl md:text-6xl gold-text mb-4 leading-tight">${payload.title}</h2>
-                        <p class="font-sans text-xl text-brand-gold tracking-wide uppercase text-sm">${payload.tagline}</p>
-                    </div>
-                    <div class="font-sans text-brand-light text-lg">
-                        ${payload.body}
-                    </div>
-                `;
-
-                // Execute Transition
-                hub.classList.add('hidden-state');
-                
-                setTimeout(() => {
-                    detail.classList.remove('hidden-state');
-                    detail.style.position = 'relative'; // Anchor to normal document flow
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                    detailVideo.play();
-                }, 600);
-            },
-
-            // Transition back to Hub
-            returnToHub: () => {
-                const hub = document.getElementById('hub-interface');
-                const detail = document.getElementById('detail-interface');
-                const detailVideo = document.getElementById('detail-video');
-
-                detail.classList.add('hidden-state');
-                detailVideo.pause();
-
-                setTimeout(() => {
-                    detail.style.position = 'absolute';
-                    hub.classList.remove('hidden-state');
-                    SystemController.triggerHubVideos(true);
-                }, 600);
-            },
-
-            // VRAM Security: Intersection Observer to pause off-screen PIP videos
-            optimizeVRAM: () => {
-                const videos = document.querySelectorAll('.hub-video');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        const v = entry.target;
-                        if (entry.isIntersecting && !document.getElementById('hub-interface').classList.contains('hidden-state')) {
-                            v.play().catch(()=>{});
-                        } else {
-                            v.pause();
-                        }
-                    });
-                }, { threshold: 0.2 });
-
-                videos.forEach(v => observer.observe(v));
-            },
-
-            // Global trigger for Hub video playback state
-            triggerHubVideos: (playState) => {
-                const videos = document.querySelectorAll('.hub-video');
-                videos.forEach(v => {
-                    if (playState) {
-                        // Only play if it's currently visible in the horizontal scroll
-                        const rect = v.getBoundingClientRect();
-                        if(rect.left >= 0 && rect.right <= window.innerWidth) {
-                            v.play().catch(()=>{});
-                        }
-                    } else {
-                        v.pause();
-                    }
-                });
-            }
-        };
-
-        // Boot
-        document.addEventListener('DOMContentLoaded', SystemController.init);
-    </script>
+    <script src="./assets/js/app.js"></script>
 </body>
 </html>
